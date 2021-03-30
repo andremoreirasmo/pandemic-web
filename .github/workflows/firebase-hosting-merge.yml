@@ -20,5 +20,6 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PANDEMIC_99365 }}'
           channelId: live
           projectId: pandemic-99365
+          entryPoint: "./pandemicweb/" 
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
