@@ -12,13 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: >-
-          cd pandemicweb && sudo snap install flutter --classic && flutter channel stable && flutter upgrade && flutter build web
+          cd frontend && sudo snap install flutter --classic && flutter channel stable && flutter upgrade && flutter build web
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PANDEMIC_99365 }}'
           channelId: live
           projectId: pandemic-99365
-          entryPoint: "./pandemicweb/" 
+          entryPoint: "./frontend/" 
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
