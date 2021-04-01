@@ -1,5 +1,6 @@
-.App {
-  display: flex;
-  height: 100vh;
-  
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background: #282b2e;
+  color: #fff;
 }
