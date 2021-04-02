@@ -1,18 +1,16 @@
-import React from "react";
-import UserIcon from "../../../images/user.png";
-import { Link } from "react-router-dom";
-
-import Sidebar from "./sidebar/Sidebar";
 import {
-  Toolbar,
-  Typography,
   Avatar,
   List,
   ListItem,
   ListItemText,
+  Toolbar,
+  Typography,
 } from "@material-ui/core";
-
+import React from "react";
+import { Link } from "react-router-dom";
+import UserIcon from "../../../images/user.png";
 import useStyles from "./MenuStyle";
+import Sidebar from "./sidebar/Sidebar";
 
 export default function Menu(props) {
   const style = useStyles();

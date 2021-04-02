@@ -1,14 +1,26 @@
-import './App.css';
+import "./App.css";
 import React from "react";
 import Menu from "../components/layout/menu/Menu";
-import Content from "../components/layout/Content";
+
 import { BrowserRouter as Router } from "react-router-dom";
 
-const App = (props) => (
-  <Router>
-    <Menu />    
-      <Content />
-  </Router>
-);
+import { makeStyles } from "@material-ui/core/styles";
 
-export default App;
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    flexDirection: "column"
+  },
+}));
+
+export default function App(props) {
+  const classes = useStyles();
+
+  return (
+    <Router>
+      <div className={classes.container}>
+        <Menu />        
+      </div>
+    </Router>
+  );
+}
