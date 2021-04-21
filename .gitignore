@@ -12,7 +12,7 @@ coverage
 build
 
 # backend
-.env
+env/
 
 # misc
 .DS_Store
