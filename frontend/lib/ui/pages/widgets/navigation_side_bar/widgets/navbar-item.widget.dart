@@ -12,7 +12,7 @@ class NavBarItem extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: onTap(),
+        onTap: onTap,
         splashColor: Colors.white,
         hoverColor: Colors.white12,
         child: Container(

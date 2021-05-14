@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:pandemicweb/ui/pages/navigation_side_bar/navigation-sidebar.page.dart';
+import 'package:pandemicweb/app_widget.dart';
+import 'package:pandemicweb/routes/router_generator.dart';
+import 'package:pandemicweb/routes/routes_model.dart';
 
-void main() =>
-    runApp(MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()));
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Container(
-        height: size.height,
-        width: size.width,
-        color: Color(0xFF202124),
-        child: Row(
-          children: [
-            NavigationSideBar(),
-          ],
-        ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Pandemic',
+      builder: (_, child) => AppWidget(
+        child: child,
       ),
+      initialRoute: Routes.home,
+      navigatorKey: navKey,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:pandemicweb/ui/pages/navigation_side_bar/navigation-sidebar.store.dart';
-import 'package:pandemicweb/ui/pages/navigation_side_bar/widgets/navbar-item.widget.dart';
+import 'package:pandemicweb/routes/routes_model.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:pandemicweb/ui/pages/widgets/navigation_side_bar/navigation-sidebar.store.dart';
+import 'package:pandemicweb/ui/pages/widgets/navigation_side_bar/widgets/navbar-item.widget.dart';
 
 class NavBar extends StatelessWidget {
+  final store = NavigationSideBarStore();
   @override
   Widget build(BuildContext context) {
-    final store = NavigationSideBarStore();
     return Observer(
       builder: (_) => Container(
         height: 350.0,
         child: Column(
           children: [
             NavBarItem(
-              icon: FeatherIcons.home,
-              active: store.selected[0],
-              onTap: () => store.select(0),
-            ),
+                icon: FeatherIcons.home,
+                active: store.selected[0],
+                onTap: () {
+                  store.select(0);
+                  navKey.currentState.pushNamed(Routes.home);
+                }),
             NavBarItem(
-              icon: FeatherIcons.barChart2,
-              active: store.selected[1],
-              onTap: () => store.select(1),
-            ),
+                icon: FeatherIcons.barChart2,
+                active: store.selected[1],
+                onTap: () {
+                  store.select(1);
+                  navKey.currentState.pushNamed(Routes.statistics);
+                }),
             NavBarItem(
               icon: FeatherIcons.book,
               active: store.selected[2],

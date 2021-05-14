@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pandemicweb/ui/pages/navigation_side_bar/widgets/navbar.widget.dart';
+import 'package:pandemicweb/ui/pages/widgets/navigation_side_bar/widgets/navbar.widget.dart';
+import 'package:pandemicweb/utils/colors.dart';
 
 class NavigationSideBar extends StatelessWidget {
   @override
@@ -9,10 +10,9 @@ class NavigationSideBar extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height,
         width: 60.0,
-        color: Color(0xff333951),
+        color: ColorsModel.primaryBlueColor,
         child: Stack(
           children: [
-            // TopLogo(),
             Align(
               alignment: Alignment.center,
               child: NavBar(),
