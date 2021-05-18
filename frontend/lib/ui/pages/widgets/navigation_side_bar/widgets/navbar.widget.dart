@@ -36,7 +36,10 @@ class NavBar extends StatelessWidget {
             NavBarItem(
               icon: FeatherIcons.lock,
               active: store.selected[3],
-              onTap: () => store.select(3),
+              onTap: () { 
+                store.select(3);
+                navKey.currentState.pushNamed(Routes.login_adm);
+              }
             ),
           ],
         ),
