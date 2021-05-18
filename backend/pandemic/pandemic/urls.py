@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
 from rest_framework import routers
+from rest_framework.authtoken import views
 from core.api.viewsets import *
 from location.api.viewsets import *
 from orientation.api.viewsets import *
@@ -39,5 +40,6 @@ router.register(r'orientation',OrientationViewSet)
 urlpatterns = [
     path('',include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api-token-auth/',views.obtain_auth_token)
 
 ]
