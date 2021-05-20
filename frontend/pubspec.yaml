@@ -26,6 +26,7 @@ dependencies:
   mobx: ^2.0.1
   flutter_mobx: ^2.0.0
   flutter_feather_icons: ^2.0.0+1
+  dio: ^4.0.0
 
 
 

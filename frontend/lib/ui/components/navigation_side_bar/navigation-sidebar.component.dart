@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pandemicweb/ui/pages/widgets/navigation_side_bar/widgets/navbar.widget.dart';
-import 'package:pandemicweb/utils/colors.dart';
+import 'package:pandemicweb/shared/utils/colors.dart';
+import 'package:pandemicweb/ui/components/navigation_side_bar/widgets/navbar.widget.dart';
 
 class NavigationSideBar extends StatelessWidget {
   @override

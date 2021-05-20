@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pandemicweb/ui/pages/widgets/navigation_side_bar/navigation-sidebar.page.dart';
-import 'package:pandemicweb/utils/colors.dart';
+import 'package:pandemicweb/shared/utils/colors.dart';
+import 'package:pandemicweb/ui/components/navigation_side_bar/navigation-sidebar.component.dart';
 
 class AppWidget extends StatelessWidget {
   final child;

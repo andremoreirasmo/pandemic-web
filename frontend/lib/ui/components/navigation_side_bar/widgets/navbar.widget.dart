@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pandemicweb/routes/routes_model.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:pandemicweb/ui/pages/widgets/navigation_side_bar/navigation-sidebar.store.dart';
-import 'package:pandemicweb/ui/pages/widgets/navigation_side_bar/widgets/navbar-item.widget.dart';
+import 'package:pandemicweb/ui/components/navigation_side_bar/navigation-sidebar.store.dart';
+import 'package:pandemicweb/ui/components/navigation_side_bar/widgets/navbar-item.widget.dart';
 
 class NavBar extends StatelessWidget {
   final store = NavigationSideBarStore();
@@ -34,13 +34,12 @@ class NavBar extends StatelessWidget {
               onTap: () => store.select(2),
             ),
             NavBarItem(
-              icon: FeatherIcons.lock,
-              active: store.selected[3],
-              onTap: () { 
-                store.select(3);
-                navKey.currentState.pushNamed(Routes.login_adm);
-              }
-            ),
+                icon: FeatherIcons.lock,
+                active: store.selected[3],
+                onTap: () {
+                  store.select(3);
+                  navKey.currentState.pushNamed(Routes.login);
+                }),
           ],
         ),
       ),
