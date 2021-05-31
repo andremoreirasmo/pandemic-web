@@ -12,7 +12,7 @@
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
   -->
   <base href="/">
-
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
@@ -33,6 +33,10 @@
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+       <div id="loader">
+        <h1 id="loader-title">Pandemic</h1>
+        <div class="lds-dual-ring"></div>
+    </div>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('flutter-first-frame', function () {
@@ -43,3 +47,4 @@
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
+

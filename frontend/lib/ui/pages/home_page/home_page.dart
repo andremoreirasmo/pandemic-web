@@ -4,6 +4,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pandemicweb/shared/utils/app_text_styles.dart';
 import 'package:pandemicweb/ui/pages/home_page/home_page.store.dart';
 import 'package:pandemicweb/ui/pages/home_page/widgets/total_cases.card.dart';
+import 'package:skeleton_text/skeleton_text.dart';
 
 class HomePage extends StatelessWidget {
   final store = HomePageStore();
@@ -30,43 +31,81 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 Observer(
-                    builder: (_) => Container(
-                        margin: EdgeInsets.only(top: 5.0),
-                        height: 200.0,
-                        width: MediaQuery.of(context).size.width * 0.62,
-                        child: store.worldCases != null
-                            ? Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  TotalCasesCard(
-                                    color: Color(0xffFAAA1E),
-                                    name: 'Infectados',
-                                    icon: FeatherIcons.activity,
-                                    data: store.worldCases?.totalConfirmed
-                                            .toString() ??
-                                        "",
+                  builder: (_) => Container(
+                      margin: EdgeInsets.only(top: 5.0),
+                      height: 200.0,
+                      // width: MediaQuery.of(context).size.width * 0.62,
+                      child: store.worldCases != null
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                TotalCasesCard(
+                                  color: Color(0xffFAAA1E),
+                                  name: 'Infectados',
+                                  icon: FeatherIcons.activity,
+                                  data: store.worldCases?.totalConfirmed
+                                          .toString() ??
+                                      "",
+                                ),
+                                TotalCasesCard(
+                                  color: Color(0xffFF4C60),
+                                  name: 'Mortes',
+                                  icon: FeatherIcons.frown,
+                                  data: store.worldCases?.totalDeaths
+                                          .toString() ??
+                                      "",
+                                ),
+                                TotalCasesCard(
+                                  color: Colors.greenAccent,
+                                  name: 'Recuperados',
+                                  icon: FeatherIcons.heart,
+                                  data: store.worldCases?.totalRecovered
+                                          .toString() ??
+                                      "",
+                                ),
+                              ],
+                            )
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SkeletonAnimation(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  child: Container(
+                                    width: 230,
+                                    height: 120,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        color: Colors.grey[300]),
                                   ),
-                                  TotalCasesCard(
-                                    color: Color(0xffFF4C60),
-                                    name: 'Mortes',
-                                    icon: FeatherIcons.frown,
-                                    data: store.worldCases?.totalDeaths
-                                            .toString() ??
-                                        "",
+                                ),
+                                SkeletonAnimation(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  child: Container(
+                                    width: 230,
+                                    height: 120,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        color: Colors.grey[300]),
                                   ),
-                                  TotalCasesCard(
-                                    color: Colors.greenAccent,
-                                    name: 'Recuperados',
-                                    icon: FeatherIcons.heart,
-                                    data: store.worldCases?.totalRecovered
-                                            .toString() ??
-                                        "",
+                                ),
+                                SkeletonAnimation(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  child: Container(
+                                    width: 230,
+                                    height: 120,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        color: Colors.grey[300]),
                                   ),
-                                ],
-                              )
-                            : Center(child: CircularProgressIndicator())))
+                                ),
+                              ],
+                            )),
+                )
               ],
             )
           ],

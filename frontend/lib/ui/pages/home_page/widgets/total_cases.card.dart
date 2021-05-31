@@ -37,8 +37,8 @@ class _TotalCasesCardState extends State<TotalCasesCard> {
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 275),
-        height: hovered ? 100.0 : 105.0,
-        width: hovered ? 170.0 : 165.0,
+        height: hovered ? 120.0 : 125.0,
+        width: hovered ? 230.0 : 225.0,
         decoration: BoxDecoration(
             color: hovered ? widget.color : Colors.white,
             borderRadius: BorderRadius.circular(15.0),
