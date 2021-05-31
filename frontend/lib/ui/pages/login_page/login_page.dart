@@ -7,8 +7,13 @@ import 'package:pandemicweb/shared/utils/text_form_field.dart';
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: _buildBody(context)),
+    return Scaffold(
+      body: Stack(
+        children: [
+          Image.asset('assets/images/login_background.jpg',fit: BoxFit.cover,),
+          Center(child: _buildBody(context)),
+        ],
+      ),
     );
   }
 
@@ -38,10 +43,12 @@ class LoginPage extends StatelessWidget {
                width: MediaQuery.of(context).size.width*0.15,
                padding: EdgeInsets.only(top:32),
                child: AppButton("Entrar", (){},color: ColorsModel.primaryLight)),
-           ],
-         )
-      ],),
-     );
-   }
+                          ],
+                        )
+                     ],),
+                    );
+                  }
+               
+           
     
 }
