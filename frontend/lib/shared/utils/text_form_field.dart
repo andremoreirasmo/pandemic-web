@@ -10,9 +10,6 @@ class AppTextField extends StatelessWidget {
   final bool password;
   final TextEditingController controller;
   
- 
-
-
   AppTextField(this.label, this.hint,
       {this.validator, this.onSaved, this.password = false,this.controller});
 
@@ -27,9 +24,10 @@ class AppTextField extends StatelessWidget {
       keyboardType: TextInputType.text,
       style: TextStyle(
         color: Colors.grey[300],
-        fontSize: 16,
+        fontSize: 14,
       ),
       decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(8),
           labelText: this.label,
           labelStyle: TextStyle(
               color: Colors.grey[300], fontSize: 16,),
@@ -38,9 +36,9 @@ class AppTextField extends StatelessWidget {
             color: Colors.grey[300],
             fontSize: 14,
           ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: Colors.white)
+          border: UnderlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide(color: Colors.white,width: 3)
           ),
           errorStyle: TextStyle(fontSize: 14)),
     );
