@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pandemicweb/routes/routes_model.dart';
+import 'package:pandemicweb/ui/pages/admin/home/admin_home_page.dart';
+import 'package:pandemicweb/ui/pages/admin/login_page/login_page.dart';
 import 'package:pandemicweb/ui/pages/home_page/home_page.dart';
-import 'package:pandemicweb/ui/pages/login_page/login_page.dart';
 import 'package:pandemicweb/ui/pages/statistics_page/statistics_page.dart';
 
 class RouteGenerator {
@@ -15,6 +16,9 @@ class RouteGenerator {
         break;
       case Routes.login:
         return MaterialPageRoute(builder: (_) => LoginPage());
+        break;
+      case Routes.admin_home:
+        return MaterialPageRoute(builder: (_) => AdminHomePage());
         break;
     }
   }

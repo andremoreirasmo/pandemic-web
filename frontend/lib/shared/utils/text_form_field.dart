@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pandemicweb/shared/utils/app_text_styles.dart';
 import 'package:pandemicweb/shared/utils/colors.dart';
 
 class AppTextField extends StatelessWidget {
@@ -30,7 +31,7 @@ class AppTextField extends StatelessWidget {
           contentPadding: EdgeInsets.all(8),
           labelText: this.label,
           labelStyle: TextStyle(
-              color: Colors.grey[300], fontSize: 16,),
+              color: Colors.grey[300], fontSize: 16),
           hintText: this.hint,
           hintStyle: TextStyle(
             color: Colors.grey[300],
