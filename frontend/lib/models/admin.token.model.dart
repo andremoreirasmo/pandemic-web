@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class AdminToken {
-  String token;
+  var token;
 
   AdminToken({
     this.token

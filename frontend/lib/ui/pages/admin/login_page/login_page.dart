@@ -69,8 +69,13 @@ class LoginPage extends StatelessWidget {
 
   void login() async {
 
-    await  store.authenticate(username.text,password.text);
- 
-     //navKey.currentState.pushNamed(Routes.admin_home);
+   var  token = await  store.authenticate(username.text,password.text);
+    if(store.token.token == null) {
+      print("falha ao logar");
+    }
+    else { 
+      navKey.currentState.pushNamed(Routes.admin_home);
+    }
+     //
   }
 }

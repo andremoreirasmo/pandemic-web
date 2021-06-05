@@ -16,7 +16,7 @@ abstract class _LoginPageStoreBase with Store {
   @action
   authenticate(username,password) async {
     token = await _loginRepository.authenticate(username,password);
-    print("TOKEN - >>>>>>>>>>>>>>. ${token}");
+    print("TOKEN - >>>>>>>>>>>>>>. ${token.token}");
   
   }
 }
