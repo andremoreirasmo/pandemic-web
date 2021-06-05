@@ -1,11 +1,17 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter/material.dart';
+import 'package:pandemicweb/repositories/login_repository.dart';
 import 'package:pandemicweb/routes/routes_model.dart';
 import 'package:pandemicweb/shared/utils/app_button.dart';
 import 'package:pandemicweb/shared/utils/app_text_styles.dart';
 import 'package:pandemicweb/shared/utils/colors.dart';
 import 'package:pandemicweb/shared/utils/text_form_field.dart';
+import 'package:pandemicweb/ui/pages/admin/login_page/login_page.store.dart';
 
 class LoginPage extends StatelessWidget {
+  final store = LoginPageStore();
+  TextEditingController username = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: _buildBody(context));
@@ -38,10 +44,10 @@ class LoginPage extends StatelessWidget {
                 Container(
                     padding: EdgeInsets.only(top: 32),
                     child: AppTextField(
-                        "Login", "Digite o e-mail de administrador")),
+                        "Login", "Digite o e-mail de administrador",controller: username,)),
                 Container(
                     padding: EdgeInsets.only(top: 8),
-                    child: AppTextField("Senha", "Digite sua senha",
+                    child: AppTextField("Senha", "Digite sua senha",controller: password,
                         password: true)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -61,7 +67,10 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  void login() {
-     navKey.currentState.pushNamed(Routes.admin_home);
+  void login() async {
+
+    await  store.authenticate(username.text,password.text);
+ 
+     //navKey.currentState.pushNamed(Routes.admin_home);
   }
 }
