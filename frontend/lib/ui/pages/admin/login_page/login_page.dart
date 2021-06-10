@@ -10,8 +10,6 @@ import 'package:pandemicweb/ui/pages/admin/login_page/login_page.store.dart';
 
 class LoginPage extends StatelessWidget {
   final store = LoginPageStore();
-  TextEditingController username = TextEditingController();
-  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: _buildBody(context));
@@ -44,10 +42,10 @@ class LoginPage extends StatelessWidget {
                 Container(
                     padding: EdgeInsets.only(top: 32),
                     child: AppTextField(
-                        "Login", "Digite o e-mail de administrador",controller: username,)),
+                        label:"Login", hint:"Digite o e-mail de administrador",onChanged: store.setUsername,)),
                 Container(
                     padding: EdgeInsets.only(top: 8),
-                    child: AppTextField("Senha", "Digite sua senha",controller: password,
+                    child: AppTextField(label:"Senha", hint:"Digite sua senha",onChanged: store.setPassword,
                         password: true)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -55,7 +53,7 @@ class LoginPage extends StatelessWidget {
                     Container(
                         width: MediaQuery.of(context).size.width * 0.15,
                         padding: EdgeInsets.only(top: 32),
-                        child: AppButton("Entrar", login,
+                        child: AppButton("Entrar", store.authenticate,
                             color: ColorsModel.primaryLight)),
                   ],
                 )
@@ -67,15 +65,6 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  void login() async {
-
-   var  token = await  store.authenticate(username.text,password.text);
-    if(store.token.token == null) {
-      print("falha ao logar");
-    }
-    else { 
-      navKey.currentState.pushNamed(Routes.admin_home);
-    }
-     //
-  }
+ 
+ 
 }

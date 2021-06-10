@@ -8,11 +8,12 @@ class AppTextField extends StatelessWidget {
   final String hint;
   final Function validator;
   final Function onSaved;
+  final Function onChanged;
   final bool password;
   final TextEditingController controller;
   
-  AppTextField(this.label, this.hint,
-      {this.validator, this.onSaved, this.password = false,this.controller});
+  AppTextField({this.label, this.hint,
+      this.validator, this.onSaved, this.password = false,this.controller,this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class AppTextField extends StatelessWidget {
       validator: this.validator,
       onSaved: this.onSaved,
       obscureText: password,
-
+      onChanged: onChanged,
       keyboardType: TextInputType.text,
       style: TextStyle(
         color: Colors.grey[300],
