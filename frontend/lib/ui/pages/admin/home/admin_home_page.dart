@@ -16,10 +16,29 @@ class AdminHomePage extends StatelessWidget {
         child: ListView(
           children: [
             _header(),
-            AdminCard(title:'Orientações',description: 'Ver e cadastrar novas orientações',callback:(){},asset:'lib/assets/images/card_orientation.svg'),
-            AdminCard(title:'Relatórios',description: 'Veja relatórios de covid na utilização do seu app',callback:(){},asset:'lib/assets/images/card_report.svg'),
-            AdminCard(title:'Usuários',description: 'Cadastrar novos usuários no app',callback:(){},asset:'lib/assets/images/card_user.svg'),
-            SizedBox(height:100)
+            AdminCard(
+                title: 'Orientações',
+                description: 'Ver e cadastrar novas orientações',
+                callback: () {
+                  navKey.currentState.pushNamed(Routes.admin_orientation);
+                },
+                asset: 'lib/assets/images/card_orientation.svg'),
+            AdminCard(
+                title: 'Relatórios',
+                description:
+                    'Veja relatórios de covid na utilização do seu app',
+                callback: () {
+                  navKey.currentState.pushNamed(Routes.admin_report);
+                },
+                asset: 'lib/assets/images/card_report.svg'),
+            AdminCard(
+                title: 'Usuários',
+                description: 'Cadastrar novos usuários no app',
+                callback: () {
+                  navKey.currentState.pushNamed(Routes.admin_user);
+                },
+                asset: 'lib/assets/images/card_user.svg'),
+            SizedBox(height: 100)
           ],
         ),
       ),
