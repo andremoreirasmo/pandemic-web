@@ -9,5 +9,5 @@ class AppTextStyles {
       fontWeight: FontWeight.w500, fontSize: 15.0, color: Colors.white);
 
   static final description = GoogleFonts.quicksand(
-      fontWeight: FontWeight.w300, fontSize: 15.0, color: Colors.grey[300]);
+      fontWeight: FontWeight.w400, fontSize: 15.0, color: Colors.grey[300]);
 }

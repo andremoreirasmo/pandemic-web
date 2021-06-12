@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pandemicweb/routes/routes_model.dart';
 import 'package:pandemicweb/shared/utils/app_text_styles.dart';
 import 'package:pandemicweb/shared/utils/colors.dart';
-import 'package:pandemicweb/ui/pages/admin/orientation/widgets/card.dart';
+import 'package:pandemicweb/ui/pages/admin/orientation/widgets/orientation_card.dart';
 
 
 class AdminOrientationPage extends StatelessWidget {
