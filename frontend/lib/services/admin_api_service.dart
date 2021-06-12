@@ -13,7 +13,7 @@ class AdminApiService {
   }
 
   Future<Map<String, dynamic>> authenticate(username, password) async {
-    var url = "http://" + ApiUrl.djangoapi + "/api-token-auth/";
+    var url = ApiUrl.djangoapi + "/api-token-auth/";
     try {
       var response = await _httpClient
           .post(url

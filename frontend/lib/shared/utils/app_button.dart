@@ -8,7 +8,7 @@ class AppButton extends StatelessWidget {
   final Color color;
   final Color textcolor;
 
-  AppButton(this.text, this.callback, {this.showProgress = false,this.color = Colors.deepPurple, this.textcolor = Colors.black});
+  AppButton({this.text, this.callback, this.showProgress = false,this.color = Colors.deepPurple, this.textcolor = Colors.black});
 
   @override
   Widget build(BuildContext context) {
