@@ -6,16 +6,13 @@ import 'package:pandemicweb/ui/pages/admin/orientation/admin_orientation_page.da
 import 'package:pandemicweb/ui/pages/admin/report/admin_report_page.dart';
 import 'package:pandemicweb/ui/pages/admin/user/admin_user_page.dart';
 import 'package:pandemicweb/ui/pages/home_page/home_page.dart';
-import 'package:pandemicweb/ui/pages/statistics_page/statistics_page.dart';
+
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.home:
         return MaterialPageRoute(builder: (_) => HomePage());
-        break;
-      case Routes.statistics:
-        return MaterialPageRoute(builder: (_) => StatisticsPage());
         break;
       case Routes.login:
         return MaterialPageRoute(builder: (_) => LoginPage());
