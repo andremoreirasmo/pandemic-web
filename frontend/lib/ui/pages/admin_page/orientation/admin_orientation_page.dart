@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:pandemicweb/routes/routes_model.dart';
 import 'package:pandemicweb/shared/utils/app_text_styles.dart';
 import 'package:pandemicweb/shared/utils/colors.dart';
-import 'package:pandemicweb/ui/pages/admin/orientation/widgets/orientation_card.dart';
 
+import 'widgets/orientation.card.widget.dart';
 
 class AdminOrientationPage extends StatelessWidget {
   @override
@@ -12,12 +12,12 @@ class AdminOrientationPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorsModel.primaryColorDark,
       body: _buildBody(),
-        floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // Add your onPressed code here!
         },
-        label:  Text('Adicionar'),
-        icon:  Icon(Icons.add),
+        label: Text('Adicionar'),
+        icon: Icon(Icons.add),
         backgroundColor: Colors.pink,
       ),
     );
@@ -25,23 +25,32 @@ class AdminOrientationPage extends StatelessWidget {
 
   Container _buildBody() {
     return Container(
-    padding: EdgeInsets.all(4),
-    child: Scrollbar(
-      isAlwaysShown: true,
-      thickness: 10,
-      child: ListView(
-        children: [
-          _header(),
-          OrientationCard(title: 'ORientação numero 1!!!!',description: 'Teste teste teste teste teste  teste teste teste   teste teste teste   teste teste teste   teste teste teste   teste teste teste ',),
-          OrientationCard(title: 'ORientação numero 1!!!!',description: 'Teste teste teste teste teste  teste teste teste   teste teste teste   teste teste teste   teste teste teste   teste teste teste ',),
-          OrientationCard(title: 'ORientação numero 1!!!!',description: 'Teste teste teste teste teste  teste teste teste   teste teste teste   teste teste teste   teste teste teste   teste teste teste ',)
-
-
-
-        ],
+      padding: EdgeInsets.all(4),
+      child: Scrollbar(
+        isAlwaysShown: true,
+        thickness: 10,
+        child: ListView(
+          children: [
+            _header(),
+            OrientationCard(
+              title: 'ORientação numero 1!!!!',
+              description:
+                  'Teste teste teste teste teste  teste teste teste   teste teste teste   teste teste teste   teste teste teste   teste teste teste ',
+            ),
+            OrientationCard(
+              title: 'ORientação numero 1!!!!',
+              description:
+                  'Teste teste teste teste teste  teste teste teste   teste teste teste   teste teste teste   teste teste teste   teste teste teste ',
+            ),
+            OrientationCard(
+              title: 'ORientação numero 1!!!!',
+              description:
+                  'Teste teste teste teste teste  teste teste teste   teste teste teste   teste teste teste   teste teste teste   teste teste teste ',
+            )
+          ],
+        ),
       ),
-    ),
-  );
+    );
   }
 
   Column _header() {
@@ -76,7 +85,6 @@ class AdminOrientationPage extends StatelessWidget {
             ],
           ),
         ),
-       
       ],
     );
   }
