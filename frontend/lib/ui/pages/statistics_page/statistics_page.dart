@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pandemicweb/shared/utils/app_text_styles.dart';
+import 'package:pandemicweb/shared/utils/colors.dart';
 import 'package:pandemicweb/ui/pages/statistics_page/statistics_page.store.dart';
 import 'package:pandemicweb/ui/pages/statistics_page/widgets/total_cases_card.widget.dart';
 import 'package:skeleton_text/skeleton_text.dart';
@@ -24,6 +25,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
         padding: EdgeInsets.all(4),
         child: Center(
@@ -82,51 +84,37 @@ class _StatisticsPageState extends State<StatisticsPage> {
                                   ),
                                 ],
                               )
-                            : Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SkeletonAnimation(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    child: Container(
-                                      width: 230,
-                                      height: 120,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0),
-                                          color: Colors.grey[300]),
-                                    ),
-                                  ),
-                                  SkeletonAnimation(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    child: Container(
-                                      width: 230,
-                                      height: 120,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0),
-                                          color: Colors.grey[300]),
-                                    ),
-                                  ),
-                                  SkeletonAnimation(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    child: Container(
-                                      width: 230,
-                                      height: 120,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0),
-                                          color: Colors.grey[300]),
-                                    ),
-                                  ),
-                                ],
-                              )),
+                            : _loadingList(size)),
                   )
                 ],
               )
             ],
           ),
         )));
+  }
+
+  _loadingList(size) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [0, 0, 0]
+          .map((e) => SkeletonAnimation(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Container(
+                  height: (size.height * 0.15),
+                  width: (size.width * 0.25),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: ColorsModel.primaryBlueColorDark,
+                    boxShadow: [
+                      BoxShadow(
+                          color: ColorsModel.primaryBlueColorDark,
+                          blurRadius: 1)
+                    ],
+                  ),
+                ),
+              ))
+          .toList(),
+    );
   }
 }

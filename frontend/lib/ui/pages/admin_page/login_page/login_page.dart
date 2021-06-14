@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pandemicweb/services/authentication.dart';
 import 'package:pandemicweb/shared/utils/app_button.dart';
 import 'package:pandemicweb/shared/utils/app_text_styles.dart';
+import 'package:pandemicweb/shared/utils/assets_model.dart';
 import 'package:pandemicweb/shared/utils/colors.dart';
 import 'package:pandemicweb/shared/utils/text_form_field.dart';
 import 'package:pandemicweb/ui/pages/admin_page/login_page/login_page.store.dart';
@@ -20,7 +21,7 @@ class LoginPage extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("lib/assets/images/login_background.jpg"),
+              image: AssetImage(AssetsModel.background),
               fit: BoxFit.cover,
             ),
           ),

@@ -10,7 +10,9 @@ class NavigationSideBar extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height,
         width: 60.0,
-        color: ColorsModel.primaryBlueColor,
+        decoration: BoxDecoration(
+            color: ColorsModel.primaryColorDark,
+            boxShadow: [BoxShadow(color: Colors.white24, blurRadius: 2)]),
         child: Stack(
           children: [
             Align(

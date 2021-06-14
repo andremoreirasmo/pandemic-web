@@ -29,8 +29,8 @@ dependencies:
   dio: ^4.0.0
   google_fonts: ^2.1.0
   skeleton_text: ^3.0.0
-  http:
   flutter_svg:
+  intl: ^0.17.0
 
 
 

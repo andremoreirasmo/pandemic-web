@@ -2,6 +2,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter/material.dart';
 import 'package:pandemicweb/routes/routes_model.dart';
 import 'package:pandemicweb/shared/utils/app_text_styles.dart';
+import 'package:pandemicweb/shared/utils/assets_model.dart';
 import 'package:pandemicweb/shared/utils/colors.dart';
 
 import 'widgets/admin_card.widget.dart';
@@ -23,7 +24,7 @@ class AdminHomePage extends StatelessWidget {
                 callback: () {
                   navKey.currentState.pushNamed(Routes.admin_orientation);
                 },
-                asset: 'lib/assets/images/card_orientation.svg'),
+                asset: AssetsModel.card_orientation),
             AdminCard(
                 title: 'Relatórios',
                 description:
@@ -31,14 +32,14 @@ class AdminHomePage extends StatelessWidget {
                 callback: () {
                   navKey.currentState.pushNamed(Routes.admin_report);
                 },
-                asset: 'lib/assets/images/card_report.svg'),
+                asset: AssetsModel.card_report),
             AdminCard(
                 title: 'Usuários',
                 description: 'Cadastrar novos usuários no app',
                 callback: () {
                   navKey.currentState.pushNamed(Routes.admin_user);
                 },
-                asset: 'lib/assets/images/card_user.svg'),
+                asset: AssetsModel.card_user),
             SizedBox(height: 100)
           ],
         ),

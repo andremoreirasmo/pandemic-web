@@ -24,16 +24,17 @@ class OrientationCard extends StatelessWidget {
                     0.8, 0.0), // 10% of the width, so there are ten blinds.
                 colors: <Color>[
                   ColorsModel.primaryColorDark,
-                  ColorsModel.primaryBlueColor,
+                  ColorsModel.primaryBlueColorLight,
                   ColorsModel.primaryColor,
                   ColorsModel.primaryColorDark,
                 ],
               ),
               boxShadow: [
-                BoxShadow(color: ColorsModel.primaryBlueColor, blurRadius: 1.5)
+                BoxShadow(
+                    color: ColorsModel.primaryBlueColorLight, blurRadius: 1.5)
               ],
               borderRadius: BorderRadius.circular(16),
-              color: ColorsModel.primaryBlueColor),
+              color: ColorsModel.primaryBlueColorLight),
           child: Row(
             children: [
               Icon(

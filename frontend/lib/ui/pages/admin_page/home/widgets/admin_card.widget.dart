@@ -23,8 +23,8 @@ class AdminCard extends StatelessWidget {
               end: Alignment(
                   0.8, 0.0), // 10% of the width, so there are ten blinds.
               colors: <Color>[
-                 ColorsModel.primaryColorDark,
-                ColorsModel.primaryBlueColor,
+                ColorsModel.primaryColorDark,
+                ColorsModel.primaryBlueColorLight,
                 ColorsModel.primaryColor,
                 ColorsModel.primaryColorDark,
               ],
@@ -33,7 +33,7 @@ class AdminCard extends StatelessWidget {
               BoxShadow(color: ColorsModel.primaryLight, blurRadius: 3)
             ],
             borderRadius: BorderRadius.circular(16),
-            color: ColorsModel.primaryBlueColor),
+            color: ColorsModel.primaryBlueColorLight),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Padding(
@@ -60,7 +60,7 @@ class AdminCard extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: AppButton(
                     text: 'Ver ${title}',
-                    callback : callback,
+                    callback: callback,
                     color: ColorsModel.primaryLight,
                   ),
                 )
