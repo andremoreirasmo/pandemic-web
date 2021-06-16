@@ -54,6 +54,28 @@ mixin _$LoginPageStore on _LoginPageStoreBase, Store {
     });
   }
 
+  final _$isLoadingAtom = Atom(name: '_LoginPageStoreBase.isLoading');
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
+  final _$initStoreAsyncAction = AsyncAction('_LoginPageStoreBase.initStore');
+
+  @override
+  Future initStore() {
+    return _$initStoreAsyncAction.run(() => super.initStore());
+  }
+
   final _$authenticateAsyncAction =
       AsyncAction('_LoginPageStoreBase.authenticate');
 
@@ -92,7 +114,8 @@ mixin _$LoginPageStore on _LoginPageStoreBase, Store {
     return '''
 username: ${username},
 password: ${password},
-token: ${token}
+token: ${token},
+isLoading: ${isLoading}
     ''';
   }
 }

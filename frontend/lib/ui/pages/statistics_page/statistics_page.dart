@@ -47,6 +47,20 @@ class _StatisticsPageState extends State<StatisticsPage> {
                       style: AppTextStyles.titleBold,
                     ),
                   ),
+                  Container(
+                    margin:
+                        EdgeInsets.only(left: 30.0, top: 25.0, bottom: 10.0),
+                    width: size.width * 0.08,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(color: Colors.white, width: 2),
+                      ),
+                    ),
+                    child: SelectableText(
+                      'Mundo',
+                      style: AppTextStyles.titleBold,
+                    ),
+                  ),
                   Observer(
                     builder: (_) => Container(
                         margin: EdgeInsets.only(top: 5.0),
@@ -85,7 +99,21 @@ class _StatisticsPageState extends State<StatisticsPage> {
                                 ],
                               )
                             : _loadingList(size)),
-                  )
+                  ),
+                  Container(
+                    margin:
+                        EdgeInsets.only(left: 30.0, top: 25.0, bottom: 10.0),
+                    width: size.width * 0.08,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(color: Colors.white, width: 2),
+                      ),
+                    ),
+                    child: SelectableText(
+                      'Brazil',
+                      style: AppTextStyles.titleBold,
+                    ),
+                  ),
                 ],
               )
             ],
