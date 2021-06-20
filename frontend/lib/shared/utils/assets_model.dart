@@ -4,4 +4,6 @@ class AssetsModel {
       "lib/assets/images/card_orientation.svg";
   static const String card_report = "lib/assets/images/card_report.svg";
   static const String card_user = "lib/assets/images/card_user.svg";
+  static const String generic_picture_1 =
+      "lib/assets/images/generic_picture_1.png";
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pandemicweb/routes/routes_model.dart';
-import 'package:pandemicweb/services/storage_service.dart';
+import 'package:pandemicweb/core/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Functions {

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pandemicweb/routes/routes_model.dart';
-import 'package:pandemicweb/ui/pages/admin_page/home/admin_home_page.dart';
-import 'package:pandemicweb/ui/pages/admin_page/login_page/login_page.dart';
-import 'package:pandemicweb/ui/pages/admin_page/orientation/admin_orientation_page.dart';
-import 'package:pandemicweb/ui/pages/admin_page/orientation/edit_orientation_page.dart';
-import 'package:pandemicweb/ui/pages/admin_page/orientation/new_orientation_page.dart';
-import 'package:pandemicweb/ui/pages/admin_page/report/admin_report_page.dart';
-import 'package:pandemicweb/ui/pages/admin_page/user/admin_user_page.dart';
-import 'package:pandemicweb/ui/pages/home_page/home_page.dart';
-import 'package:pandemicweb/ui/pages/statistics_page/statistics_page.dart';
+import 'package:pandemicweb/ui/features/admin_page/home/admin_home_page.dart';
+import 'package:pandemicweb/ui/features/admin_page/login_page/login_page.dart';
+import 'package:pandemicweb/ui/features/admin_page/orientation/admin_orientation_page.dart';
+import 'package:pandemicweb/ui/features/admin_page/orientation/pages/edit_orientation_page.dart';
+import 'package:pandemicweb/ui/features/admin_page/orientation/pages/new_orientation_page.dart';
+import 'package:pandemicweb/ui/features/admin_page/report/admin_report_page.dart';
+import 'package:pandemicweb/ui/features/admin_page/user/admin_user_page.dart';
+import 'package:pandemicweb/ui/features/home_page/home_page.dart';
+import 'package:pandemicweb/ui/features/statistics_page/statistics_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -37,7 +37,7 @@ class RouteGenerator {
       case Routes.edit_orientation:
         return MaterialPageRoute(builder: (_) => EditOrientationPage());
         break;
-       case Routes.new_orientation:
+      case Routes.new_orientation:
         return MaterialPageRoute(builder: (_) => NewOrientationPage());
         break;
     }
