@@ -77,8 +77,8 @@ class _TotalCasesCardState extends State<TotalCasesCard> {
                     width: 30.0,
                     child: Icon(
                       widget.icon,
-                      // color: !hovered ? Colors.white : Colors.black,
-                      color: Colors.black,
+                      color: hovered ? Colors.white : Colors.black,
+                      // color: Colors.black,
                       size: 16.0,
                     ),
                     decoration: BoxDecoration(
