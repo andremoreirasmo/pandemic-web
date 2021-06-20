@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: >-
-          cd frontend && sudo snap install flutter --classic && flutter channel stable && flutter upgrade && flutter build web
+          cd frontend && sudo snap install flutter --classic && flutter channel stable && flutter upgrade && flutter build web --web-renderer html
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
