@@ -11,8 +11,10 @@ class AppTextField extends StatelessWidget {
   final Function onChanged;
   final bool password;
   final TextEditingController controller;
+  final Color textColor;
+  final TextInputType keyboardType;
   
-  AppTextField({this.label, this.hint,
+  AppTextField({this.label, this.hint,this.textColor= Colors.grey,this.keyboardType=TextInputType.text,
       this.validator, this.onSaved, this.password = false,this.controller,this.onChanged});
 
   @override
@@ -23,19 +25,19 @@ class AppTextField extends StatelessWidget {
       onSaved: this.onSaved,
       obscureText: password,
       onChanged: onChanged,
-      keyboardType: TextInputType.text,
+      keyboardType: keyboardType,
       style: TextStyle(
-        color: Colors.grey[300],
+        color: textColor,
         fontSize: 14,
       ),
       decoration: InputDecoration(
           contentPadding: EdgeInsets.all(8),
           labelText: this.label,
           labelStyle: TextStyle(
-              color: Colors.grey[300], fontSize: 16),
+              color: textColor, fontSize: 16),
           hintText: this.hint,
           hintStyle: TextStyle(
-            color: Colors.grey[300],
+            color: textColor,
             fontSize: 14,
           ),
           border: UnderlineInputBorder(

@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) => AppWidget(
         child: child,
       ),
-      initialRoute: Routes.home,
+      initialRoute: Routes.new_orientation,
       navigatorKey: navKey,
       onGenerateRoute: RouteGenerator.generateRoute,
     );

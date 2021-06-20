@@ -64,12 +64,12 @@ class OrientationCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Container(
-                              width: MediaQuery.of(context).size.width * 0.15,
+                              width: MediaQuery.of(context).size.width * 0.13,
                               padding: EdgeInsets.only(
                                   top: 32, left: 8, bottom: 8, right: 8),
                               child: AppButton(
                                 text: 'Editar',
-                                color: Colors.pink,
+                                color: ColorsModel.primaryLight,
                                 callback: () {},
                               )
                               //child: AppButton(text:'Editar',color: ColorsModel.primaryColorDark,textcolor: Colors.white,callback: (){}),

@@ -8,6 +8,8 @@ class Routes {
   static const String admin_orientation = '/admin/orientation';
   static const String admin_report = '/admin/report';
   static const String admin_user = '/admin/user';
+  static const String edit_orientation = '/admin/orientation/edit';
+  static const String new_orientation = '/admin/orientation/new';
 
 }
 

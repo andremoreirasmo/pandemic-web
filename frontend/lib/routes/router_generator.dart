@@ -3,6 +3,8 @@ import 'package:pandemicweb/routes/routes_model.dart';
 import 'package:pandemicweb/ui/pages/admin_page/home/admin_home_page.dart';
 import 'package:pandemicweb/ui/pages/admin_page/login_page/login_page.dart';
 import 'package:pandemicweb/ui/pages/admin_page/orientation/admin_orientation_page.dart';
+import 'package:pandemicweb/ui/pages/admin_page/orientation/edit_orientation_page.dart';
+import 'package:pandemicweb/ui/pages/admin_page/orientation/new_orientation_page.dart';
 import 'package:pandemicweb/ui/pages/admin_page/report/admin_report_page.dart';
 import 'package:pandemicweb/ui/pages/admin_page/user/admin_user_page.dart';
 import 'package:pandemicweb/ui/pages/home_page/home_page.dart';
@@ -31,6 +33,12 @@ class RouteGenerator {
         break;
       case Routes.admin_user:
         return MaterialPageRoute(builder: (_) => AdminUserPage());
+        break;
+      case Routes.edit_orientation:
+        return MaterialPageRoute(builder: (_) => EditOrientationPage());
+        break;
+       case Routes.new_orientation:
+        return MaterialPageRoute(builder: (_) => NewOrientationPage());
         break;
     }
   }

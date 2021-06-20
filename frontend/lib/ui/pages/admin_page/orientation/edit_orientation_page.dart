@@ -6,20 +6,12 @@ import 'package:pandemicweb/shared/utils/colors.dart';
 
 import 'widgets/orientation.card.widget.dart';
 
-class AdminOrientationPage extends StatelessWidget {
+class EditOrientationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsModel.primaryColorDark,
       body: _buildBody(),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-           navKey.currentState.pushNamed(Routes.new_orientation);
-        },
-        label: Text('Adicionar'),
-        icon: Icon(Icons.add),
-        backgroundColor: Colors.pink,
-      ),
     );
   }
 
@@ -32,21 +24,7 @@ class AdminOrientationPage extends StatelessWidget {
         child: ListView(
           children: [
             _header(),
-            OrientationCard(
-              title: 'ORientação numero 1!!!!',
-              description:
-                  'Teste teste teste teste teste  teste teste teste   teste teste teste   teste teste teste   teste teste teste   teste teste teste ',
-            ),
-            OrientationCard(
-              title: 'ORientação numero 1!!!!',
-              description:
-                  'Teste teste teste teste teste  teste teste teste   teste teste teste   teste teste teste   teste teste teste   teste teste teste ',
-            ),
-            OrientationCard(
-              title: 'ORientação numero 1!!!!',
-              description:
-                  'Teste teste teste teste teste  teste teste teste   teste teste teste   teste teste teste   teste teste teste   teste teste teste ',
-            )
+         
           ],
         ),
       ),
@@ -63,7 +41,7 @@ class AdminOrientationPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SelectableText(
-                'Orientações de covid',
+                'Editar Orientação de covid',
                 style: AppTextStyles.titleBold,
               ),
               Padding(
@@ -74,7 +52,7 @@ class AdminOrientationPage extends StatelessWidget {
                         ColorsModel.primaryLight),
                   ),
                   onPressed: () {
-                    navKey.currentState.pushNamed(Routes.admin_home);
+                    navKey.currentState.pushNamed(Routes.admin_orientation);
                   },
                   child: Text(
                     'Voltar',
