@@ -25,6 +25,22 @@ mixin _$AdminSymptomsStore on _AdminSymptomsStoreBase, Store {
     });
   }
 
+  final _$showItemOptionsOfAtom =
+      Atom(name: '_AdminSymptomsStoreBase.showItemOptionsOf');
+
+  @override
+  int get showItemOptionsOf {
+    _$showItemOptionsOfAtom.reportRead();
+    return super.showItemOptionsOf;
+  }
+
+  @override
+  set showItemOptionsOf(int value) {
+    _$showItemOptionsOfAtom.reportWrite(value, super.showItemOptionsOf, () {
+      super.showItemOptionsOf = value;
+    });
+  }
+
   final _$initStoreAsyncAction =
       AsyncAction('_AdminSymptomsStoreBase.initStore');
 
@@ -59,9 +75,32 @@ mixin _$AdminSymptomsStore on _AdminSymptomsStoreBase, Store {
   }
 
   @override
+  dynamic removeSymptom({dynamic context, dynamic index}) {
+    final _$actionInfo = _$_AdminSymptomsStoreBaseActionController.startAction(
+        name: '_AdminSymptomsStoreBase.removeSymptom');
+    try {
+      return super.removeSymptom(context: context, index: index);
+    } finally {
+      _$_AdminSymptomsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic closeAllCardOptions() {
+    final _$actionInfo = _$_AdminSymptomsStoreBaseActionController.startAction(
+        name: '_AdminSymptomsStoreBase.closeAllCardOptions');
+    try {
+      return super.closeAllCardOptions();
+    } finally {
+      _$_AdminSymptomsStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-currentSymptom: ${currentSymptom}
+currentSymptom: ${currentSymptom},
+showItemOptionsOf: ${showItemOptionsOf}
     ''';
   }
 }

@@ -16,20 +16,53 @@ class AdminSymptomsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _availableSymptoms() {
-      return Column(
-        children: store.sintomas
-            .map((sintoma) => ListTile(
-                  title: SelectableText(
-                    sintoma,
-                    style: AppTextStyles.subtitle,
+    Widget _cardOptionsBandeija(MapEntry entry) {
+      return Row(
+        children: [
+          Expanded(
+            child: AnimatedContainer(
+              curve: Curves.easeInOut,
+              height: store.showItemOptionsOf == entry.key ? 50.0 : 0,
+              // color: Colors.red,
+              duration: Duration(milliseconds: 300),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.1),
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(10.0),
+                      bottomLeft: Radius.circular(10.0),
+                    ),
                   ),
-                  leading: Icon(
-                    FeatherIcons.activity,
-                    color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      RaisedButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          // side: BorderSide(
+                          //   color: ColorsModel.secundaryColor,
+                          // ),
+                        ),
+                        onPressed: () {
+                          store.removeSymptom(
+                              context: context, index: entry.key);
+                        },
+                        padding: EdgeInsets.all(10.0),
+                        color: Colors.red,
+                        textColor: Colors.white,
+                        child: Text("Remover"),
+                      )
+                    ],
                   ),
-                ))
-            .toList(),
+                ),
+              ),
+            ),
+          )
+        ],
       );
     }
 
@@ -70,6 +103,50 @@ class AdminSymptomsPage extends StatelessWidget {
           ));
     }
 
+    _availableSymptoms() {
+      return Observer(
+        builder: (_) => Column(
+          children: [
+            ...store.sintomas
+                .asMap()
+                .entries
+                .map((entry) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: GestureDetector(
+                        onTap: () {
+                          store.toggleOptionsItem(entry.key);
+                        },
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: ColorsModel.primaryBlueColorDark,
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: IgnorePointer(
+                                ignoring: true,
+                                child: ListTile(
+                                  title: Text(
+                                    entry.value,
+                                    style: AppTextStyles.subtitle,
+                                  ),
+                                  leading: Icon(
+                                    FeatherIcons.activity,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            _cardOptionsBandeija(entry)
+                          ],
+                        ),
+                      ),
+                    ))
+                .toList(),
+          ],
+        ),
+      );
+    }
+
     return Container(
       padding: EdgeInsets.all(24),
       child: Column(
@@ -98,15 +175,16 @@ class AdminSymptomsPage extends StatelessWidget {
                     ),
                     Icon(
                       Icons.add,
+                      color: Colors.white,
                     )
                   ],
                 )),
           ),
           Container(
-            height: 2,
+            height: 4,
             margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             decoration: BoxDecoration(
-                color: Colors.grey[600],
+                color: Colors.grey[850],
                 borderRadius: BorderRadius.circular(12)),
           ),
           Observer(

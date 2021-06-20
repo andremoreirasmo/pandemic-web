@@ -16,6 +16,9 @@ abstract class _AdminSymptomsStoreBase with Store {
   @observable
   String currentSymptom = '';
 
+  @observable
+  int showItemOptionsOf = -1;
+
   @action
   initStore() async {}
 
@@ -35,5 +38,30 @@ abstract class _AdminSymptomsStoreBase with Store {
             )));
       }
     }
+  }
+
+  @action
+  removeSymptom({context, index}) {
+    sintomas.removeAt(index);
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: Colors.red[400],
+        content: Text(
+          'O sintoma $currentSymptom foi removido com sucesso',
+          style: AppTextStyles.subtitle,
+        )));
+  }
+
+  toggleOptionsItem(int index) {
+    if (index == showItemOptionsOf) {
+      closeAllCardOptions();
+    } else {
+      showItemOptionsOf = index;
+    }
+  }
+
+  @action
+  closeAllCardOptions() {
+    showItemOptionsOf = -1;
   }
 }
