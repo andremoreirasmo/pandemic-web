@@ -119,6 +119,13 @@ class AdminHomePage extends StatelessWidget {
                 },
                 asset: AssetsModel.card_report),
             AdminCard(
+                title: 'Sintomas',
+                description: 'Cadastre sintomas de covid do seu app',
+                callback: () {
+                  navKey.currentState.pushNamed(Routes.admin_symptoms);
+                },
+                asset: AssetsModel.card_orientation),
+            AdminCard(
                 title: 'Usuários',
                 description: 'Cadastrar novos usuários no app',
                 callback: () {

@@ -4,6 +4,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pandemicweb/shared/utils/app_text_styles.dart';
 import 'package:pandemicweb/shared/utils/colors.dart';
+import 'package:pandemicweb/shared/utils/functions.dart';
 import 'package:pandemicweb/ui/features/statistics_page/statistics_page.store.dart';
 import 'package:pandemicweb/ui/features/statistics_page/widgets/total_cases_card.widget.dart';
 import 'package:skeleton_text/skeleton_text.dart';
@@ -164,7 +165,9 @@ class _StatisticsPageState extends State<StatisticsPage> {
                   // _brazilDashboard()
                   Padding(
                     padding: const EdgeInsets.all(40.0),
-                    child: LineChartSample2(),
+                    child: LineChartSample2(
+                      availableMonths: store.lastMonths,
+                    ),
                   )
                 ],
               )
@@ -175,6 +178,12 @@ class _StatisticsPageState extends State<StatisticsPage> {
 }
 
 class LineChartSample2 extends StatefulWidget {
+  List<int> availableMonths;
+
+  LineChartSample2({
+    Key key,
+    this.availableMonths,
+  }) : super(key: key);
   @override
   _LineChartSample2State createState() => _LineChartSample2State();
 }
@@ -252,21 +261,16 @@ class _LineChartSample2State extends State<LineChartSample2> {
         show: true,
         bottomTitles: SideTitles(
           showTitles: true,
-          reservedSize: 22,
+          // reservedSize: 6,
+          // interval: 3,
           getTextStyles: (value) => const TextStyle(
               color: Color(0xff68737d),
               fontWeight: FontWeight.bold,
               fontSize: 16),
           getTitles: (value) {
-            switch (value.toInt()) {
-              case 2:
-                return 'MAR';
-              case 5:
-                return 'JUN';
-              case 8:
-                return 'SEP';
+            if (widget.availableMonths.contains(value.toInt())) {
+              return Functions.getFormatedMonthString(value);
             }
-            return '';
           },
           margin: 8,
         ),

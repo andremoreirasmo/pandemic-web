@@ -39,12 +39,36 @@ mixin _$StatisticsPageStore on _StatisticsPageStoreBase, Store {
     });
   }
 
+  final _$lastMonthsAtom = Atom(name: '_StatisticsPageStoreBase.lastMonths');
+
+  @override
+  List<int> get lastMonths {
+    _$lastMonthsAtom.reportRead();
+    return super.lastMonths;
+  }
+
+  @override
+  set lastMonths(List<int> value) {
+    _$lastMonthsAtom.reportWrite(value, super.lastMonths, () {
+      super.lastMonths = value;
+    });
+  }
+
   final _$fetchAllDataAsyncAction =
       AsyncAction('_StatisticsPageStoreBase.fetchAllData');
 
   @override
   Future fetchAllData() {
     return _$fetchAllDataAsyncAction.run(() => super.fetchAllData());
+  }
+
+  final _$getBrazilCasesDataAsyncAction =
+      AsyncAction('_StatisticsPageStoreBase.getBrazilCasesData');
+
+  @override
+  Future getBrazilCasesData() {
+    return _$getBrazilCasesDataAsyncAction
+        .run(() => super.getBrazilCasesData());
   }
 
   final _$_StatisticsPageStoreBaseActionController =
@@ -65,7 +89,8 @@ mixin _$StatisticsPageStore on _StatisticsPageStoreBase, Store {
   String toString() {
     return '''
 worldCases: ${worldCases},
-brazilCases: ${brazilCases}
+brazilCases: ${brazilCases},
+lastMonths: ${lastMonths}
     ''';
   }
 }

@@ -11,9 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pandemic',
-      builder: (_, child) => AppWidget(
-        child: child,
-      ),
+      builder: (_, child) => AppWidget(child: child),
       initialRoute: Routes.new_orientation,
       navigatorKey: navKey,
       onGenerateRoute: RouteGenerator.generateRoute,
