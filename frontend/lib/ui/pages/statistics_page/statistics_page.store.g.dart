@@ -24,6 +24,21 @@ mixin _$StatisticsPageStore on _StatisticsPageStoreBase, Store {
     });
   }
 
+  final _$brazilCasesAtom = Atom(name: '_StatisticsPageStoreBase.brazilCases');
+
+  @override
+  List<BrazilCases> get brazilCases {
+    _$brazilCasesAtom.reportRead();
+    return super.brazilCases;
+  }
+
+  @override
+  set brazilCases(List<BrazilCases> value) {
+    _$brazilCasesAtom.reportWrite(value, super.brazilCases, () {
+      super.brazilCases = value;
+    });
+  }
+
   final _$fetchAllDataAsyncAction =
       AsyncAction('_StatisticsPageStoreBase.fetchAllData');
 
@@ -49,7 +64,8 @@ mixin _$StatisticsPageStore on _StatisticsPageStoreBase, Store {
   @override
   String toString() {
     return '''
-worldCases: ${worldCases}
+worldCases: ${worldCases},
+brazilCases: ${brazilCases}
     ''';
   }
 }

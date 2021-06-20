@@ -1,4 +1,5 @@
 import 'package:mobx/mobx.dart';
+import 'package:pandemicweb/models/brazil_cases.model.dart';
 
 import '../../../models/cases.model.dart';
 import '../../../repositories/covid_repository.dart';
@@ -16,6 +17,9 @@ abstract class _StatisticsPageStoreBase with Store {
   @observable
   WorldCases worldCases;
 
+  @observable
+  List<BrazilCases> brazilCases;
+
   @action
   initStore() {
     fetchAllData();
@@ -24,5 +28,7 @@ abstract class _StatisticsPageStoreBase with Store {
   @action
   fetchAllData() async {
     worldCases = await _covidRepository.fetchWorldCases();
+    brazilCases = await _covidRepository.fetchBrazilCases();
+    print(brazilCases.length);
   }
 }
