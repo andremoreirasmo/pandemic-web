@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:pandemicweb/shared/utils/app_text_styles.dart';
 import 'package:pandemicweb/shared/utils/functions.dart';
 part 'admin_symptoms.store.g.dart';
 
@@ -26,30 +25,23 @@ abstract class _AdminSymptomsStoreBase with Store {
   setCurrentSymptom(value) => currentSymptom = value;
 
   @action
-  addSymptom(context) {
+  addSymptom() {
     if (currentSymptom != null && currentSymptom.isNotEmpty) {
       if (!sintomas.contains(currentSymptom)) {
         sintomas.add(currentSymptom);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.greenAccent,
-            content: Text(
-              'O sintoma $currentSymptom foi adicionado com sucesso',
-              style: AppTextStyles.subtitle,
-            )));
+        Functions.showCustomFlushBar(
+            'O sintoma $currentSymptom foi removido com sucesso',
+            Colors.greenAccent[400]);
       }
     }
   }
 
   @action
-  removeSymptom({context, index}) {
+  removeSymptom(index) {
     sintomas.removeAt(index);
-
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        backgroundColor: Colors.red[400],
-        content: Text(
-          'O sintoma $currentSymptom foi removido com sucesso',
-          style: AppTextStyles.subtitle,
-        )));
+    Functions.showCustomFlushBar(
+        'O sintoma $currentSymptom foi removido com sucesso', Colors.red[400]);
+    currentSymptom = '';
   }
 
   toggleOptionsItem(int index) {

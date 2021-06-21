@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:pandemicweb/routes/routes_model.dart';
 import 'package:pandemicweb/core/services/storage_service.dart';
@@ -7,6 +8,33 @@ class Functions {
   static logoutUser() async {
     var prefs = await SharedPreferences.getInstance();
     await prefs.setString(StorageKeys.userToken, "");
+  }
+
+  static showCustomFlushBar(String message, Color color,
+      {int duration = 2500,
+      int animationDuration = 300,
+      Color textColor = Colors.white}) {
+    BotToast.showCustomText(
+        align: Alignment.bottomCenter,
+        duration: Duration(milliseconds: duration),
+        // wrapAnimation: AnimationController(),
+        toastBuilder: (_) {
+          return Container(
+              color: color,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        message,
+                        style: TextStyle(color: textColor),
+                      ),
+                    ),
+                  ],
+                ),
+              ));
+        }); //popup a text toast;
   }
 
   static showGenericModal(

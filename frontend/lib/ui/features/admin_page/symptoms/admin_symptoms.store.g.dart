@@ -64,22 +64,22 @@ mixin _$AdminSymptomsStore on _AdminSymptomsStoreBase, Store {
   }
 
   @override
-  dynamic addSymptom(dynamic context) {
+  dynamic addSymptom() {
     final _$actionInfo = _$_AdminSymptomsStoreBaseActionController.startAction(
         name: '_AdminSymptomsStoreBase.addSymptom');
     try {
-      return super.addSymptom(context);
+      return super.addSymptom();
     } finally {
       _$_AdminSymptomsStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  dynamic removeSymptom({dynamic context, dynamic index}) {
+  dynamic removeSymptom(dynamic index) {
     final _$actionInfo = _$_AdminSymptomsStoreBaseActionController.startAction(
         name: '_AdminSymptomsStoreBase.removeSymptom');
     try {
-      return super.removeSymptom(context: context, index: index);
+      return super.removeSymptom(index);
     } finally {
       _$_AdminSymptomsStoreBaseActionController.endAction(_$actionInfo);
     }

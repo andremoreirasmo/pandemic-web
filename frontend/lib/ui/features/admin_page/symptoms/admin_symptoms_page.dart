@@ -48,8 +48,7 @@ class AdminSymptomsPage extends StatelessWidget {
                           // ),
                         ),
                         onPressed: () {
-                          store.removeSymptom(
-                              context: context, index: entry.key);
+                          store.removeSymptom(entry.key);
                         },
                         padding: EdgeInsets.all(10.0),
                         color: Colors.red,
@@ -92,7 +91,7 @@ class AdminSymptomsPage extends StatelessWidget {
                         child: Text("Cancelar")),
                     TextButton(
                         onPressed: () {
-                          store.addSymptom(context);
+                          store.addSymptom();
                           navKey.currentState.pop();
                         },
                         child: Text("Confirmar")),
@@ -119,6 +118,7 @@ class AdminSymptomsPage extends StatelessWidget {
                         child: Column(
                           children: [
                             Container(
+                              padding: EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                   color: ColorsModel.primaryBlueColorDark,
                                   borderRadius: BorderRadius.circular(12)),
@@ -186,6 +186,9 @@ class AdminSymptomsPage extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.grey[850],
                 borderRadius: BorderRadius.circular(12)),
+          ),
+          SizedBox(
+            height: 100,
           ),
           Observer(
             builder: (_) => store.sintomas.isEmpty

@@ -101,7 +101,8 @@ class _StatisticsPageState extends State<StatisticsPage> {
                     width: size.width * 0.08,
                     decoration: BoxDecoration(
                       border: Border(
-                        bottom: BorderSide(color: Colors.white, width: 2),
+                        bottom: BorderSide(
+                            color: Colors.white.withOpacity(0.3), width: 1),
                       ),
                     ),
                     child: SelectableText(
@@ -154,11 +155,12 @@ class _StatisticsPageState extends State<StatisticsPage> {
                     width: size.width * 0.08,
                     decoration: BoxDecoration(
                       border: Border(
-                        bottom: BorderSide(color: Colors.white, width: 2),
+                        bottom: BorderSide(
+                            color: Colors.white.withOpacity(0.3), width: 1),
                       ),
                     ),
                     child: SelectableText(
-                      'Brazil',
+                      'Brasil',
                       style: AppTextStyles.titleBold,
                     ),
                   ),
