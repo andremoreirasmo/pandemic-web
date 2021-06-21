@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
@@ -40,17 +42,20 @@ class NewOrientationPage extends StatelessWidget {
           height: 500,
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment(
-                    0.8, 0.0), // 10% of the width, so there are ten blinds.
+                begin: Alignment.bottomLeft,
+                end: Alignment.topCenter,
                 colors: <Color>[
                   ColorsModel.primaryColorDark,
-                  ColorsModel.primaryColor,
-                  ColorsModel.primaryColorDark,
+                  ColorsModel.primaryBlueColorDark,
+            
+                  ColorsModel.primaryBlueColorLight,
+                  
+                  
+                
                 ],
               ),
               boxShadow: [
-                BoxShadow(color: ColorsModel.primaryLight, blurRadius: 5)
+                BoxShadow(color: ColorsModel.secundaryColor, blurRadius: 5)
               ],
               borderRadius: BorderRadius.circular(16),
               color: Colors.white),
@@ -70,32 +75,42 @@ class NewOrientationPage extends StatelessWidget {
                         label: 'Título',
                         hint: 'Título da orientação',
                         textColor: ColorsModel.primaryLight,
+                        onChanged: store.setTitle,
                       ),
                       AppTextField(
                         label: 'Descrição',
                         textColor: ColorsModel.primaryLight,
                         keyboardType: TextInputType.multiline,
-                      ),
-                      AppButton(
-                        text: 'Selecionar imagem',
-                        callback: () {
-                          store.pickImage();
-                        },
-                        color: ColorsModel.primaryLight,
-                        style: AppTextStyles.description
-                            .copyWith(color: ColorsModel.primaryBlueColorDark),
+                        onChanged: store.setDescription,
                       ),
                     ],
                   ),
-                  Container(
-                      height: 50,
-                      child: AppButton(
-                        text: 'Enviar',
-                        callback: () {},
-                        color: ColorsModel.primaryLight,
-                        style: AppTextStyles.description
-                            .copyWith(color: ColorsModel.primaryBlueColorDark),
-                      ))
+                  Observer(
+                    builder: (_) {
+                      return Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              store.responseMessage,
+                              style: AppTextStyles.subtitle
+                                  .copyWith(color: Colors.amber[400]),
+                            ),
+                          ),
+                          Container(
+                              height: 50,
+                              child: AppButton(
+                                showProgress: store.isLoading,
+                                text: 'Enviar',
+                                callback: store.create,
+                                color: ColorsModel.primaryLight,
+                                style: AppTextStyles.description.copyWith(
+                                    color: ColorsModel.primaryBlueColorDark),
+                              )),
+                        ],
+                      );
+                    },
+                  )
                 ]),
           ),
         ),
@@ -114,7 +129,7 @@ class NewOrientationPage extends StatelessWidget {
             children: [
               SelectableText(
                 'Nova Orientação de covid',
-                style: AppTextStyles.titleBold,
+                style: AppTextStyles.description.copyWith(color: Colors.white),
               ),
               Padding(
                 padding: EdgeInsets.only(right: 30.0, top: 25.0, bottom: 10.0),

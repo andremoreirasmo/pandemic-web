@@ -67,7 +67,6 @@ abstract class _LoginPageStoreBase with Store {
 
     if (token != null) {
       _authService.setToken(token);
-
       await prefs.setString(StorageKeys.userToken, token);
 
       navKey.currentState.pushNamed(Routes.admin_home);

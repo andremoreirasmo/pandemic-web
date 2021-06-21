@@ -69,6 +69,7 @@ class OrientationCard extends StatelessWidget {
                                   top: 32, left: 8, bottom: 8, right: 8),
                               child: AppButton(
                                 text: 'Editar',
+                                style : AppTextStyles.description.copyWith(color: Colors.black),
                                 color: ColorsModel.primaryLight,
                                 callback: () {},
                               )
