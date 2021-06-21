@@ -6,6 +6,7 @@ import 'package:pandemicweb/ui/features/admin_page/orientation/admin_orientation
 import 'package:pandemicweb/ui/features/admin_page/orientation/pages/edit_orientation_page.dart';
 import 'package:pandemicweb/ui/features/admin_page/orientation/pages/new_orientation_page.dart';
 import 'package:pandemicweb/ui/features/admin_page/report/admin_report_page.dart';
+import 'package:pandemicweb/ui/features/admin_page/symptoms/admin_symptoms_page.dart';
 import 'package:pandemicweb/ui/features/admin_page/user/admin_user_page.dart';
 import 'package:pandemicweb/ui/features/home_page/home_page.dart';
 import 'package:pandemicweb/ui/features/statistics_page/statistics_page.dart';
@@ -33,6 +34,9 @@ class RouteGenerator {
         break;
       case Routes.admin_user:
         return MaterialPageRoute(builder: (_) => AdminUserPage());
+        break;
+      case Routes.admin_symptoms:
+        return MaterialPageRoute(builder: (_) => AdminSymptomsPage());
         break;
       case Routes.edit_orientation:
         return MaterialPageRoute(builder: (_) => EditOrientationPage());

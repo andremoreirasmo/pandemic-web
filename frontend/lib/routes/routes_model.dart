@@ -10,7 +10,7 @@ class Routes {
   static const String admin_user = '/admin/user';
   static const String edit_orientation = '/admin/orientation/edit';
   static const String new_orientation = '/admin/orientation/new';
-
+  static const String admin_symptoms = '/admin/symptoms';
 }
 
 final navKey = new GlobalKey<NavigatorState>();

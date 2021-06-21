@@ -19,15 +19,40 @@ abstract class _StatisticsPageStoreBase with Store {
   @observable
   List<BrazilCases> brazilCases;
 
+  @observable
+  List<int> lastMonths = [];
+
   @action
   initStore() {
     fetchAllData();
+    getBrazilCasesData();
+    lastMonths = getLastThreeMonths();
   }
 
   @action
   fetchAllData() async {
     worldCases = await _covidRepository.fetchWorldCases();
+  }
+
+  @action
+  getBrazilCasesData() async {
     brazilCases = await _covidRepository.fetchBrazilCases();
-    print(brazilCases.length);
+    getLastThreeMonths();
+  }
+
+  List<int> getLastThreeMonths() {
+    List<int> months = [];
+
+    DateTime threeMonthsAgo = DateTime.now().subtract(Duration(days: 80));
+    DateTime oneMonthsAgo = DateTime.now().subtract(Duration(days: 28));
+
+    int monthOne = threeMonthsAgo.month;
+    months.add(monthOne);
+    int monthTwo = oneMonthsAgo.month;
+    months.add(monthTwo);
+    int monthThree = DateTime.now().month;
+    months.add(monthThree);
+
+    return months;
   }
 }
