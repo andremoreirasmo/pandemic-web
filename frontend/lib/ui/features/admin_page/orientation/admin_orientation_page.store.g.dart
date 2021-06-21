@@ -71,6 +71,45 @@ mixin _$AdminOrientationPageStore on _AdminOrientationPageStoreBase, Store {
     });
   }
 
+  final _$responseMessageAtom =
+      Atom(name: '_AdminOrientationPageStoreBase.responseMessage');
+
+  @override
+  String get responseMessage {
+    _$responseMessageAtom.reportRead();
+    return super.responseMessage;
+  }
+
+  @override
+  set responseMessage(String value) {
+    _$responseMessageAtom.reportWrite(value, super.responseMessage, () {
+      super.responseMessage = value;
+    });
+  }
+
+  final _$errorAtom = Atom(name: '_AdminOrientationPageStoreBase.error');
+
+  @override
+  bool get error {
+    _$errorAtom.reportRead();
+    return super.error;
+  }
+
+  @override
+  set error(bool value) {
+    _$errorAtom.reportWrite(value, super.error, () {
+      super.error = value;
+    });
+  }
+
+  final _$fetchAsyncAction =
+      AsyncAction('_AdminOrientationPageStoreBase.fetch');
+
+  @override
+  Future fetch() {
+    return _$fetchAsyncAction.run(() => super.fetch());
+  }
+
   final _$createAsyncAction =
       AsyncAction('_AdminOrientationPageStoreBase.create');
 
@@ -118,7 +157,9 @@ mixin _$AdminOrientationPageStore on _AdminOrientationPageStoreBase, Store {
 image: ${image},
 isLoading: ${isLoading},
 title: ${title},
-description: ${description}
+description: ${description},
+responseMessage: ${responseMessage},
+error: ${error}
     ''';
   }
 }

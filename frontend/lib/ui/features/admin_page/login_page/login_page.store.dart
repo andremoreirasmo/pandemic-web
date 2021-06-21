@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:pandemicweb/core/repositories/login_repository.dart';
+import 'package:pandemicweb/core/repositories/api_repository.dart';
 import 'package:pandemicweb/core/services/auth_service.dart';
 import 'package:pandemicweb/core/services/storage_service.dart';
 import 'package:pandemicweb/routes/routes_model.dart';
@@ -12,7 +12,7 @@ class LoginPageStore = _LoginPageStoreBase with _$LoginPageStore;
 abstract class _LoginPageStoreBase with Store {
   //TextEditingController username = TextEditingController();
   //extEditingController password = TextEditingController();
-  LoginRepository _loginRepository = LoginRepository();
+  ApiRepository _loginRepository = ApiRepository();
   AuthService _authService = AuthService.instance;
 
   _LoginPageStoreBase() {

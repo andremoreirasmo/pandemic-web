@@ -1,8 +1,18 @@
 import 'package:pandemicweb/core/models/orientation.model.dart';
 import 'package:pandemicweb/core/services/admin_api_service.dart';
 
-class OrientationRepository {
+class ApiRepository {
   AdminApiService _adminApiService = AdminApiService();
+
+  Future<String> authenticate(username, password) async {
+    final data = await _adminApiService.authenticate(username, password);
+
+    if (data.containsKey("success") && data['success'] == true) {
+      return data['result']['token'];
+    }
+
+    return null;
+  }
 
   Future<String> createOrientation(title, description) async {
     final data = await _adminApiService.createOrientation(title, description);
@@ -23,8 +33,4 @@ class OrientationRepository {
     }
     return orientations;
   }
-
-
-  
-
 }

@@ -46,6 +46,15 @@ class AdminApiService {
     return {"success": false};
   }
 
+  Future<Map<String, dynamic>> getSymptoms() async {
+    var url = ApiUrl.djangoapi + "/symptom/";
+    final response = await _httpClient.get(url);
+    if (response.statusCode == 200) {
+      return {"success": true, "result": response.data};
+    }
+    return {"success": false};
+  }
+
   Future<Map<String, dynamic>> createOrientation(title, description) async {
     var url = ApiUrl.djangoapi + "/orientation/";
     try {
