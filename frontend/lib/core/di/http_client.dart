@@ -23,14 +23,14 @@ class HttpClient {
     return _client.get(url, options: options, queryParameters: queryParameters);
   }
 
-  Future<Response> post(String url, {dynamic body, Options options}){
-    if(options == null) {
-        options = Options(
-        receiveTimeout: 60 * 1000,
-        sendTimeout: 60 * 1000,
-        validateStatus: (status) {
-          return status <= 500;
-        });
+  Future<Response> post(String url, {dynamic body, Options options}) {
+    if (options == null) {
+      options = Options(
+          receiveTimeout: 60 * 1000,
+          sendTimeout: 60 * 1000,
+          validateStatus: (status) {
+            return status <= 500;
+          });
     }
     return _client.post(url, data: body, options: options);
   }
@@ -42,10 +42,18 @@ class HttpClient {
     return _client.put(url, data: body, options: options);
   }
 
-  Future<Response> delete(String url, {dynamic body}) {
-    Options options = Options(validateStatus: (status) {
-      return status <= 500;
-    });
+  Future<Response> delete(String url, {dynamic body, Options options}) {
+    if (options == null) {
+      options = Options(
+          receiveTimeout: 60 * 1000,
+          sendTimeout: 60 * 1000,
+          validateStatus: (status) {
+            return status <= 500;
+          });
+    }
+    // Options options = Options(validateStatus: (status) {
+    //   return status <= 500;
+    // });
     return _client.delete(url, options: options);
   }
 }

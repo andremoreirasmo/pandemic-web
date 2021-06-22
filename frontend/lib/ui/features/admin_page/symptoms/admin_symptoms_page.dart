@@ -48,7 +48,8 @@ class AdminSymptomsPage extends StatelessWidget {
                           // ),
                         ),
                         onPressed: () {
-                          store.removeSymptom(entry.key);
+                          store.removeSymptom(
+                              index: entry.key, id: entry.value.idSym);
                         },
                         padding: EdgeInsets.all(10.0),
                         color: Colors.red,
@@ -126,7 +127,7 @@ class AdminSymptomsPage extends StatelessWidget {
                                 ignoring: true,
                                 child: ListTile(
                                   title: Text(
-                                    entry.value,
+                                    entry.value.desSym,
                                     style: AppTextStyles.subtitle,
                                   ),
                                   leading: Icon(
@@ -186,9 +187,6 @@ class AdminSymptomsPage extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.grey[850],
                 borderRadius: BorderRadius.circular(12)),
-          ),
-          SizedBox(
-            height: 100,
           ),
           Observer(
             builder: (_) => store.sintomas.isEmpty

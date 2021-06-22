@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:pandemicweb/core/di/http_client.dart';
+import 'package:pandemicweb/core/services/auth_service.dart';
+import 'package:pandemicweb/core/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiUrl {
@@ -53,6 +55,51 @@ class AdminApiService {
       return {"success": true, "result": response.data};
     }
     return {"success": false};
+  }
+
+  Future<Map<String, dynamic>> addSymptom(String description) async {
+    var url = ApiUrl.djangoapi + "/symptom/";
+
+    var prefs = await SharedPreferences.getInstance();
+    var token = prefs.getString(StorageKeys.userToken);
+
+    final response = await _httpClient.post(
+      url,
+      body: jsonEncode({'des_sym': description}),
+      options: Options(
+          headers: {'Authorization': 'Token ' + token},
+          receiveTimeout: 60 * 1000,
+          sendTimeout: 60 * 1000,
+          validateStatus: (status) {
+            return status <= 500;
+          }),
+    );
+    if (response.data['id_sym'] != null) {
+      return {"success": true, "data": response.data};
+    }
+    return {"sucess": false};
+  }
+
+  Future<bool> removeSymptom(String id) async {
+    var url = ApiUrl.djangoapi + "/symptom/$id";
+
+    var prefs = await SharedPreferences.getInstance();
+    var token = prefs.getString(StorageKeys.userToken);
+
+    final response = await _httpClient.delete(
+      url,
+      options: Options(
+          headers: {'Authorization': 'Token ' + token},
+          receiveTimeout: 60 * 1000,
+          sendTimeout: 60 * 1000,
+          validateStatus: (status) {
+            return status <= 500;
+          }),
+    );
+    if (response.statusCode == 204) {
+      return true;
+    }
+    return false;
   }
 
   Future<Map<String, dynamic>> createOrientation(title, description) async {

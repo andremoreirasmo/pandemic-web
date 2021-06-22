@@ -49,6 +49,31 @@ mixin _$AdminSymptomsStore on _AdminSymptomsStoreBase, Store {
     return _$initStoreAsyncAction.run(() => super.initStore());
   }
 
+  final _$getAllSymptomsAsyncAction =
+      AsyncAction('_AdminSymptomsStoreBase.getAllSymptoms');
+
+  @override
+  Future getAllSymptoms() {
+    return _$getAllSymptomsAsyncAction.run(() => super.getAllSymptoms());
+  }
+
+  final _$addSymptomAsyncAction =
+      AsyncAction('_AdminSymptomsStoreBase.addSymptom');
+
+  @override
+  Future addSymptom() {
+    return _$addSymptomAsyncAction.run(() => super.addSymptom());
+  }
+
+  final _$removeSymptomAsyncAction =
+      AsyncAction('_AdminSymptomsStoreBase.removeSymptom');
+
+  @override
+  Future removeSymptom({dynamic index, dynamic id}) {
+    return _$removeSymptomAsyncAction
+        .run(() => super.removeSymptom(index: index, id: id));
+  }
+
   final _$_AdminSymptomsStoreBaseActionController =
       ActionController(name: '_AdminSymptomsStoreBase');
 
@@ -58,28 +83,6 @@ mixin _$AdminSymptomsStore on _AdminSymptomsStoreBase, Store {
         name: '_AdminSymptomsStoreBase.setCurrentSymptom');
     try {
       return super.setCurrentSymptom(value);
-    } finally {
-      _$_AdminSymptomsStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic addSymptom() {
-    final _$actionInfo = _$_AdminSymptomsStoreBaseActionController.startAction(
-        name: '_AdminSymptomsStoreBase.addSymptom');
-    try {
-      return super.addSymptom();
-    } finally {
-      _$_AdminSymptomsStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic removeSymptom(dynamic index) {
-    final _$actionInfo = _$_AdminSymptomsStoreBaseActionController.startAction(
-        name: '_AdminSymptomsStoreBase.removeSymptom');
-    try {
-      return super.removeSymptom(index);
     } finally {
       _$_AdminSymptomsStoreBaseActionController.endAction(_$actionInfo);
     }
