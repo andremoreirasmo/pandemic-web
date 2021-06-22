@@ -92,7 +92,7 @@ class NewOrientationPage extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(16.0),
                             child: Text(
-                              store.responseMessage,
+                              store.createResponseMessage,
                               style: AppTextStyles.subtitle
                                   .copyWith(color: Colors.amber[400]),
                             ),
@@ -100,7 +100,7 @@ class NewOrientationPage extends StatelessWidget {
                           Container(
                               height: 50,
                               child: AppButton(
-                                showProgress: store.isLoading,
+                                showProgress: store.isBtnCreateLoading,
                                 text: 'Enviar',
                                 callback: store.create,
                                 color: ColorsModel.primaryLight,

@@ -24,19 +24,35 @@ mixin _$AdminOrientationPageStore on _AdminOrientationPageStoreBase, Store {
     });
   }
 
-  final _$isLoadingAtom =
-      Atom(name: '_AdminOrientationPageStoreBase.isLoading');
+  final _$isBtnCreateLoadingAtom =
+      Atom(name: '_AdminOrientationPageStoreBase.isBtnCreateLoading');
 
   @override
-  bool get isLoading {
-    _$isLoadingAtom.reportRead();
-    return super.isLoading;
+  bool get isBtnCreateLoading {
+    _$isBtnCreateLoadingAtom.reportRead();
+    return super.isBtnCreateLoading;
   }
 
   @override
-  set isLoading(bool value) {
-    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
-      super.isLoading = value;
+  set isBtnCreateLoading(bool value) {
+    _$isBtnCreateLoadingAtom.reportWrite(value, super.isBtnCreateLoading, () {
+      super.isBtnCreateLoading = value;
+    });
+  }
+
+  final _$isFetchLoadingAtom =
+      Atom(name: '_AdminOrientationPageStoreBase.isFetchLoading');
+
+  @override
+  bool get isFetchLoading {
+    _$isFetchLoadingAtom.reportRead();
+    return super.isFetchLoading;
+  }
+
+  @override
+  set isFetchLoading(bool value) {
+    _$isFetchLoadingAtom.reportWrite(value, super.isFetchLoading, () {
+      super.isFetchLoading = value;
     });
   }
 
@@ -71,19 +87,20 @@ mixin _$AdminOrientationPageStore on _AdminOrientationPageStoreBase, Store {
     });
   }
 
-  final _$responseMessageAtom =
-      Atom(name: '_AdminOrientationPageStoreBase.responseMessage');
+  final _$createResponseMessageAtom =
+      Atom(name: '_AdminOrientationPageStoreBase.createResponseMessage');
 
   @override
-  String get responseMessage {
-    _$responseMessageAtom.reportRead();
-    return super.responseMessage;
+  String get createResponseMessage {
+    _$createResponseMessageAtom.reportRead();
+    return super.createResponseMessage;
   }
 
   @override
-  set responseMessage(String value) {
-    _$responseMessageAtom.reportWrite(value, super.responseMessage, () {
-      super.responseMessage = value;
+  set createResponseMessage(String value) {
+    _$createResponseMessageAtom.reportWrite(value, super.createResponseMessage,
+        () {
+      super.createResponseMessage = value;
     });
   }
 
@@ -102,6 +119,22 @@ mixin _$AdminOrientationPageStore on _AdminOrientationPageStoreBase, Store {
     });
   }
 
+  final _$orientationsAtom =
+      Atom(name: '_AdminOrientationPageStoreBase.orientations');
+
+  @override
+  List<Orientation> get orientations {
+    _$orientationsAtom.reportRead();
+    return super.orientations;
+  }
+
+  @override
+  set orientations(List<Orientation> value) {
+    _$orientationsAtom.reportWrite(value, super.orientations, () {
+      super.orientations = value;
+    });
+  }
+
   final _$fetchAsyncAction =
       AsyncAction('_AdminOrientationPageStoreBase.fetch');
 
@@ -116,14 +149,6 @@ mixin _$AdminOrientationPageStore on _AdminOrientationPageStoreBase, Store {
   @override
   Future create() {
     return _$createAsyncAction.run(() => super.create());
-  }
-
-  final _$pickImageAsyncAction =
-      AsyncAction('_AdminOrientationPageStoreBase.pickImage');
-
-  @override
-  Future pickImage() {
-    return _$pickImageAsyncAction.run(() => super.pickImage());
   }
 
   final _$_AdminOrientationPageStoreBaseActionController =
@@ -152,14 +177,38 @@ mixin _$AdminOrientationPageStore on _AdminOrientationPageStoreBase, Store {
   }
 
   @override
+  dynamic initStore() {
+    final _$actionInfo = _$_AdminOrientationPageStoreBaseActionController
+        .startAction(name: '_AdminOrientationPageStoreBase.initStore');
+    try {
+      return super.initStore();
+    } finally {
+      _$_AdminOrientationPageStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic delete(dynamic id) {
+    final _$actionInfo = _$_AdminOrientationPageStoreBaseActionController
+        .startAction(name: '_AdminOrientationPageStoreBase.delete');
+    try {
+      return super.delete(id);
+    } finally {
+      _$_AdminOrientationPageStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 image: ${image},
-isLoading: ${isLoading},
+isBtnCreateLoading: ${isBtnCreateLoading},
+isFetchLoading: ${isFetchLoading},
 title: ${title},
 description: ${description},
-responseMessage: ${responseMessage},
-error: ${error}
+createResponseMessage: ${createResponseMessage},
+error: ${error},
+orientations: ${orientations}
     ''';
   }
 }

@@ -1,9 +1,8 @@
 import 'dart:io';
-
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobx/mobx.dart';
 import 'package:pandemicweb/core/repositories/api_repository.dart';
+import 'package:pandemicweb/core/models/orientation.model.dart';
 
 part 'admin_orientation_page.store.g.dart';
 
@@ -13,11 +12,20 @@ class AdminOrientationPageStore = _AdminOrientationPageStoreBase
 abstract class _AdminOrientationPageStoreBase with Store {
   ApiRepository _apiRepository = ApiRepository();
 
+
+   _AdminOrientationPageStoreBase() {
+    initStore();
+  }
+
+
   @observable
   PickedFile image;
 
   @observable
-  bool isLoading = false;
+  bool isBtnCreateLoading = false;
+
+  @observable
+  bool isFetchLoading = false;
 
   @observable
   String title = '';
@@ -26,13 +34,13 @@ abstract class _AdminOrientationPageStoreBase with Store {
   String description = '';
 
   @observable
-  String responseMessage = '';
+  String createResponseMessage = '';
 
   @observable
   bool error = false;
 
-  // @observable
-  // List<Orientation>
+   @observable
+   List<Orientation> orientations;
 
   @action
   void setTitle(String value) {
@@ -44,28 +52,38 @@ abstract class _AdminOrientationPageStoreBase with Store {
     description = value;
   }
 
+
+  @action
+  initStore() {
+    fetch();
+  }
+
   @action
   fetch() async {
-    // orientations = await _apiRepository.getOrientations();
+    
+    orientations = await _apiRepository.getOrientations();
   }
 
   @action
   create() async {
-    isLoading = true;
-    responseMessage = '';
+    isBtnCreateLoading = true;
+    createResponseMessage = '';
     var response = await _apiRepository.createOrientation(title, description);
     if (response == null) {
       error = true;
-      responseMessage = 'Erro ao criar orientação';
+      createResponseMessage = 'Erro ao criar orientação';
     } else {
-      responseMessage = 'Sucesso ao criar orientação';
+      createResponseMessage = 'Sucesso ao criar orientação';
       error = false;
     }
-    isLoading = false;
+    isBtnCreateLoading = false;
   }
 
-  @action
-  pickImage() async {
-    image = await ImagePicker.platform.pickImage(source: ImageSource.gallery);
-  }
+    @action
+    delete(id)async {
+      isFetchLoading = true;
+       var response = await _apiRepository.deleteOrientation(id);
+
+    }
+
 }

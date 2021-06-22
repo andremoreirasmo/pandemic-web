@@ -7,9 +7,10 @@ import 'package:pandemicweb/shared/utils/colors.dart';
 class OrientationCard extends StatelessWidget {
   final String title;
   final String description;
-  final Function callback;
+  final Function deleteCallback;
+  
 
-  OrientationCard({this.title, this.description, this.callback});
+  OrientationCard({this.title, this.description, this.deleteCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -67,11 +68,32 @@ class OrientationCard extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.13,
                               padding: EdgeInsets.only(
                                   top: 32, left: 8, bottom: 8, right: 8),
-                              child: AppButton(
-                                text: 'Editar',
-                                style : AppTextStyles.description.copyWith(color: Colors.black),
-                                color: ColorsModel.primaryLight,
-                                callback: () {},
+                              child: Column(
+                                children: [
+
+                                  AppButton(
+                                    text: 'Editar',
+                                    
+                                    style : AppTextStyles.description.copyWith(color: Colors.white),
+                                    color: ColorsModel.primaryBlueColorLight,
+                                    callback: () {},
+                                  ),
+
+                                   Container(
+                                  width: MediaQuery.of(context).size.width * 0.13,
+                                  padding: EdgeInsets.only(
+                                      top: 8, left: 8, bottom: 8, right: 8),
+                                  child: Center(
+                                    child: GestureDetector(
+                                      child: Text("Excluir",style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
+                                      onTap: () { 
+                                        deleteCallback();
+                                      },
+                                    ),
+                                  )
+                                  //child: AppButton(text:'Editar',color: ColorsModel.primaryColorDark,textcolor: Colors.white,callback: (){}),
+                                  ),
+                                ],
                               )
                               //child: AppButton(text:'Editar',color: ColorsModel.primaryColorDark,textcolor: Colors.white,callback: (){}),
                               ),
