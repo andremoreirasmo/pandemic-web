@@ -87,28 +87,16 @@ class NewOrientationPage extends StatelessWidget {
                   ),
                   Observer(
                     builder: (_) {
-                      return Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Text(
-                              store.createResponseMessage,
-                              style: AppTextStyles.subtitle
-                                  .copyWith(color: Colors.amber[400]),
-                            ),
-                          ),
-                          Container(
-                              height: 50,
-                              child: AppButton(
-                                showProgress: store.isBtnCreateLoading,
-                                text: 'Enviar',
-                                callback: store.create,
-                                color: ColorsModel.primaryLight,
-                                style: AppTextStyles.description.copyWith(
-                                    color: ColorsModel.primaryBlueColorDark),
-                              )),
-                        ],
-                      );
+                      return Container(
+                          height: 50,
+                          child: AppButton(
+                            showProgress: store.isBtnCreateLoading,
+                            text: 'Enviar',
+                            callback: store.create,
+                            color: ColorsModel.primaryLight,
+                            style: AppTextStyles.description.copyWith(
+                                color: ColorsModel.primaryBlueColorDark),
+                          ));
                     },
                   )
                 ]),

@@ -134,4 +134,28 @@ class AdminApiService {
       print(error);
     }
   }
+
+   Future<bool> deleteOrientation(id) async {
+    var url = ApiUrl.djangoapi + "/orientation/$id";
+
+    var prefs = await SharedPreferences.getInstance();
+    var token = prefs.getString(StorageKeys.userToken);
+
+    final response = await _httpClient.delete(
+      url,
+      options: Options(
+          headers: {'Authorization': 'Token ' + token},
+          receiveTimeout: 60 * 1000,
+          sendTimeout: 60 * 1000,
+          validateStatus: (status) {
+            return status <= 500;
+          }),
+    );
+    if (response.statusCode == 204) {
+      return true;
+    }
+    return false;
+  }
+
+
 }

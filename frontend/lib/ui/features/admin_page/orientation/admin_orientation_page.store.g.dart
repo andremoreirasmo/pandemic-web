@@ -87,38 +87,6 @@ mixin _$AdminOrientationPageStore on _AdminOrientationPageStoreBase, Store {
     });
   }
 
-  final _$createResponseMessageAtom =
-      Atom(name: '_AdminOrientationPageStoreBase.createResponseMessage');
-
-  @override
-  String get createResponseMessage {
-    _$createResponseMessageAtom.reportRead();
-    return super.createResponseMessage;
-  }
-
-  @override
-  set createResponseMessage(String value) {
-    _$createResponseMessageAtom.reportWrite(value, super.createResponseMessage,
-        () {
-      super.createResponseMessage = value;
-    });
-  }
-
-  final _$errorAtom = Atom(name: '_AdminOrientationPageStoreBase.error');
-
-  @override
-  bool get error {
-    _$errorAtom.reportRead();
-    return super.error;
-  }
-
-  @override
-  set error(bool value) {
-    _$errorAtom.reportWrite(value, super.error, () {
-      super.error = value;
-    });
-  }
-
   final _$orientationsAtom =
       Atom(name: '_AdminOrientationPageStoreBase.orientations');
 
@@ -149,6 +117,15 @@ mixin _$AdminOrientationPageStore on _AdminOrientationPageStoreBase, Store {
   @override
   Future create() {
     return _$createAsyncAction.run(() => super.create());
+  }
+
+  final _$deleteOrientationAsyncAction =
+      AsyncAction('_AdminOrientationPageStoreBase.deleteOrientation');
+
+  @override
+  Future deleteOrientation(dynamic id) {
+    return _$deleteOrientationAsyncAction
+        .run(() => super.deleteOrientation(id));
   }
 
   final _$_AdminOrientationPageStoreBaseActionController =
@@ -188,17 +165,6 @@ mixin _$AdminOrientationPageStore on _AdminOrientationPageStoreBase, Store {
   }
 
   @override
-  dynamic delete(dynamic id) {
-    final _$actionInfo = _$_AdminOrientationPageStoreBaseActionController
-        .startAction(name: '_AdminOrientationPageStoreBase.delete');
-    try {
-      return super.delete(id);
-    } finally {
-      _$_AdminOrientationPageStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 image: ${image},
@@ -206,8 +172,6 @@ isBtnCreateLoading: ${isBtnCreateLoading},
 isFetchLoading: ${isFetchLoading},
 title: ${title},
 description: ${description},
-createResponseMessage: ${createResponseMessage},
-error: ${error},
 orientations: ${orientations}
     ''';
   }

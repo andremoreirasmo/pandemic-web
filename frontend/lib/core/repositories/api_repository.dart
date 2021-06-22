@@ -56,4 +56,9 @@ class ApiRepository {
 
     return result ?? false;
   }
+
+  Future<bool> deleteOrientation(id) async {
+    final result = await _adminApiService.deleteOrientation(id);
+    return result ?? false;
+  }
 }

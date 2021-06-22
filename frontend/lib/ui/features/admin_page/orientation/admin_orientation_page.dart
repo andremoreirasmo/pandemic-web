@@ -76,7 +76,8 @@ class AdminOrientationPage extends StatelessWidget {
                         child: Text("Cancelar")),
                     TextButton(
                         onPressed: () {
-                          //store.deleteOrientation(id);
+                       
+                          store.deleteOrientation(id);
                           navKey.currentState.pop();
                         },
                         child: Text("Confirmar")),

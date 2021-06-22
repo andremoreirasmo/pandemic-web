@@ -15,7 +15,7 @@ class OrientationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(left: 32.0, right: 32.0, bottom: 20),
+        padding: const EdgeInsets.only(left: 64.0, right: 64.0, bottom: 20),
         child: Container(
           padding: const EdgeInsets.all(32.0),
           decoration: BoxDecoration(
@@ -68,32 +68,14 @@ class OrientationCard extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.13,
                               padding: EdgeInsets.only(
                                   top: 32, left: 8, bottom: 8, right: 8),
-                              child: Column(
-                                children: [
-
-                                  AppButton(
-                                    text: 'Editar',
-                                    
-                                    style : AppTextStyles.description.copyWith(color: Colors.white),
-                                    color: ColorsModel.primaryBlueColorLight,
-                                    callback: () {},
-                                  ),
-
-                                   Container(
-                                  width: MediaQuery.of(context).size.width * 0.13,
-                                  padding: EdgeInsets.only(
-                                      top: 8, left: 8, bottom: 8, right: 8),
-                                  child: Center(
-                                    child: GestureDetector(
-                                      child: Text("Excluir",style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
-                                      onTap: () { 
-                                        deleteCallback();
-                                      },
-                                    ),
-                                  )
-                                  //child: AppButton(text:'Editar',color: ColorsModel.primaryColorDark,textcolor: Colors.white,callback: (){}),
-                                  ),
-                                ],
+                              child: AppButton(
+                                text: 'Excluir',
+                                
+                                style : AppTextStyles.description.copyWith(color: Colors.white),
+                                color: ColorsModel.primaryBlueColorLight,
+                                callback: () {
+                                  deleteCallback();
+                                },
                               )
                               //child: AppButton(text:'Editar',color: ColorsModel.primaryColorDark,textcolor: Colors.white,callback: (){}),
                               ),
