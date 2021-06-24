@@ -178,7 +178,7 @@ class HomePage extends StatelessWidget {
                   asset: AssetsModel.virus,
                 ),
                 HowToGetCovidCard(
-                  title: 'Via contato com objetos ou superfícies contaminadas',
+                  title: 'Contato com Objetos',
                   description: 'O vírus pode permanecer por até 72 horas em plásticos e em aço inoxidável, 24 horas em papelão e 4 horas em superfícies de cobre.',
                   asset: AssetsModel.virus,
                 ),
