@@ -178,8 +178,8 @@ class HomePage extends StatelessWidget {
                   asset: AssetsModel.virus,
                 ),
                 HowToGetCovidCard(
-                  title: 'Via contato com o infectado',
-                  description: 'A maioria das pessoas com covid 19 vão experenciar dificuldade respiratória e após isso irão se recuperar',
+                  title: 'Via contato com objetos ou superfícies contaminadas',
+                  description: 'O vírus pode permanecer por até 72 horas em plásticos e em aço inoxidável, 24 horas em papelão e 4 horas em superfícies de cobre.',
                   asset: AssetsModel.virus,
                 ),
           ],),
@@ -188,13 +188,13 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               HowToGetCovidCard(
-                  title: 'Via contato com o infectado',
-                  description: 'A maioria das pessoas com covid 19 vão experenciar dificuldade respiratória e após isso irão se recuperar',
+                  title: 'Gotículas de saliva',
+                  description: 'Ao falar com uma pessoa sem máscara, góticulas de saliva podem ir até você e te contaminar',
                   asset: AssetsModel.virus,
                 ),
                 HowToGetCovidCard(
-                  title: 'Via contato com o infectado',
-                  description: 'A maioria das pessoas com covid 19 vão experenciar dificuldade respiratória e após isso irão se recuperar',
+                  title: 'Tosse e espirro',
+                  description: 'As pessoas também podem se contaminar ao respirarem gotículas provenientes da tosse ou espirro de uma pessoa doente.',
                   asset: AssetsModel.virus,
                 ),
           ],),
