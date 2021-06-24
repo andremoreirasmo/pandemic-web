@@ -10,10 +10,10 @@ import 'package:pandemicweb/ui/features/admin_page/orientation/admin_orientation
 import 'package:pandemicweb/ui/features/home_page/widgets/how_to_get_covid_card.widget.dart';
 
 class HomePage extends StatelessWidget {
-  
+  final store = AdminOrientationPageStore();
   @override
   Widget build(BuildContext context) {
-    final store = AdminOrientationPageStore();
+    
     Size size = MediaQuery.of(context).size;
     _buildTop() {
       return Container(
@@ -205,24 +205,56 @@ class HomePage extends StatelessWidget {
     _buildOrientations() {
      return Observer(
        builder: (_) {
-         return Column (
+         return Container(
+           width: size.width*0.8,
+           child: Column (
         children: [
-          SizedBox(height:100),
-          SelectableText(
-                'Orientações',
-                style: AppTextStyles.subtitle
-                    .copyWith(color: Color(0xFFb7b6bd), fontSize: 26),
-              ),
-            store.orientations!=null?store.orientations.map((orientation){
-              return Padding(
-                padding: EdgeInsets.all(16),
-                child: Column(children: [
-                  
-                ],),
-              );
-            }).toList() :CircularProgressIndicator(),
+            SizedBox(height:100),
+            SelectableText(
+                  'Orientações',
+                  style: AppTextStyles.subtitle
+                      .copyWith(color: Color(0xFFb7b6bd), fontSize: 26),
+                ),
+             
+                Padding(
+                  padding: EdgeInsets.all(16),
+                  child: store?.orientations != null ? Column(
+                    children:  store.orientations.map((e) {
+                      return Column(children: [
+                        SizedBox(height: 32),
+                        SelectableText(
+                                  e.namOri,
+                                  style: AppTextStyles.subtitle.copyWith(
+                                      color: Color(0xFFb7b6bd), fontSize: 18),
+                                ),
+                        SizedBox(height: 32),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: size.width*0.6,
+                                child: SelectableText(
+                                          e.desOri,
+                                          style: AppTextStyles.description.copyWith(
+                                            color: Colors.grey[600],
+                                          )),
+                              ),
+                            ],
+                          ),
+                        
+                      ],);
+                    }).toList().cast() ,
+                    
+                  ) : Padding(
+                    padding: const EdgeInsets.all(32),
+                    child: CircularProgressIndicator(),
+                  ),
+                )
+            
         ],
-      );
+      ),
+         );
        }
      );
       
