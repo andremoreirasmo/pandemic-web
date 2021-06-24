@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pandemicweb/core/models/orientation.model.dart' as Ori; 
+import 'package:pandemicweb/routes/routes_model.dart';
 import 'package:pandemicweb/shared/widgets/app_button.dart';
 import 'package:pandemicweb/shared/utils/app_text_styles.dart';
 import 'package:pandemicweb/shared/utils/assets_model.dart';
@@ -58,7 +59,9 @@ class HomePage extends StatelessWidget {
                 AppButton(
                   text: "COMEÇAR",
                   color: Color(0xFF664b9d),
-                  callback: () {},
+                  callback: () {
+                    navKey.currentState.pushNamed(Routes.covid_test);
+                  },
                 ),
               ],
             ),
